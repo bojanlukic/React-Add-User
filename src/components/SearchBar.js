@@ -1,9 +1,9 @@
 import React from "react";
-import "./Input.css";
+import "./SearchBar.css";
 
-function Input() {
+function SearchBar() {
   return (
-    <div className="main">
+    <div className="input">
       
       <label>Name</label>
       <input type="text" />
@@ -19,4 +19,4 @@ function Input() {
   );
 }
 
-export default Input;
+export default SearchBar;
