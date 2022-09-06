@@ -4,7 +4,7 @@
       "id": 0,
       "Name": "Bojan",
       "Surname": "Lukic",
-      "UserType": "Praksa",
+      "UserType": "Internship",
       "CreatedDate": "08.06.2022",
       "City": "Alibunar",
       "Adress": "Brigadirska 8"
@@ -13,18 +13,18 @@
       "id": 1,
       "Name": "Ivan",
       "Surname": "Tomic",
-      "UserType": "Zaposlen",
+      "UserType": "Employed",
       "CreatedDate": "01.01.2019",
-      "City": "Alibunar",
+      "City": "Beograd",
       "Adress": "Vuka Karadzica 3"
     },
     {
       "id": 2,
       "Name": "Zarko",
       "Surname": "Petrov",
-      "UserType": "Zaposlen",
+      "UserType": "Unemployed",
       "CreatedDate": "15.08.2022",
-      "City": "Alibunar",
+      "City": "Novi Sad",
       "Adress": "Mlinska 33"
     }
   ]
