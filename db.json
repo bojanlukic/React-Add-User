@@ -10,22 +10,22 @@
       "Adress": "Brigadirska 8"
     },
     {
-        "id": 1,
-        "Name": "Ivan",
-        "Surname": "Tomic",
-        "UserType": "Zaposlen",
-        "CreatedDate": "01.01.2019",
-        "City": "Alibunar",
-        "Adress": "Vuka Karadzica 3"
-      },
-      {
-        "id": 2,
-        "Name": "Darko",
-        "Surname": "Petrov",
-        "UserType": "Zaposlen",
-        "CreatedDate": "15.08.2022",
-        "City": "Alibunar",
-        "Adress": "Mlinska 33"
-      }
+      "id": 1,
+      "Name": "Ivan",
+      "Surname": "Tomic",
+      "UserType": "Zaposlen",
+      "CreatedDate": "01.01.2019",
+      "City": "Alibunar",
+      "Adress": "Vuka Karadzica 3"
+    },
+    {
+      "id": 2,
+      "Name": "Zarko",
+      "Surname": "Petrov",
+      "UserType": "Zaposlen",
+      "CreatedDate": "15.08.2022",
+      "City": "Alibunar",
+      "Adress": "Mlinska 33"
+    }
   ]
 }
