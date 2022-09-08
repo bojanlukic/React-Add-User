@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Person.css'
+import './Persons.css'
 
 function Persons() {
   const [employees, setEmployees] = useState([]);
@@ -31,7 +31,7 @@ function Persons() {
     let test = true;
 
     if (name !== '') {
-      if (item.Name.toUpperCase().includes(name.toUpperCase()) === false) {
+      if (item.Name .toLowerCase().includes(name.toLowerCase()) === false) {
         test = false;
       }
     }
