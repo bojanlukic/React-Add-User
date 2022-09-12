@@ -12,6 +12,8 @@ header {
   padding: 20px;
   box-shadow: 1px 3px 7px silver;
 font-size: 1.5em;
+position: sticky;
+top: 0;
 }
 .page-body {
   display: flex;
@@ -21,20 +23,24 @@ font-size: 1.5em;
   flex-wrap: nowrap;
   flex: 1;
 }
-aside {
+.list {
   padding: 20px;
-  background-color: rgb(219, 247, 245);
+  background-color: rgb(68, 179, 151);
   box-shadow: 1px 3px 7px silver;
+  width:110px;
+  min-height: 100vh;
+  
 }
 .main {
   text-align: center;
   padding: 20px;
 }
-ul{
-  list-style-type: none;
-  margin: 0;
+ul{ 
+  position:fixed ;
+  left: 0;
+  top: 56px;
   padding: 0;
-  width: 80px;
+  width: 120px;
 }
 li {
   display: block;
@@ -43,6 +49,8 @@ li div {
   display: block;
   padding: 15px;
   background-color: rgb(68, 179, 151);
+  width:120px;
+  height: 30px;
 }
 li div:hover {
   background-color: black;
