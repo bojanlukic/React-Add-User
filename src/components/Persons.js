@@ -31,7 +31,7 @@ function Persons() {
     let test = true;
 
     if (name !== '') {
-      if (item.Name .toLowerCase().includes(name.toLowerCase()) === false) {
+      if (item.Name.toLowerCase().includes(name.toLowerCase()) === false) {
         test = false;
       }
     }

@@ -38,19 +38,30 @@ ul{
 }
 li {
   display: block;
-  padding: 15px;
-  
-  
 }
-.active{
-  background-color:black;
+li div {
+  display: block;
+  padding: 15px;
+  background-color: rgb(68, 179, 151);
+}
+li div:hover {
+  background-color: black;
+}
+li a,
+li a:link,
+li a:visited {
+  font-weight: 600;
   color: white;
   text-decoration: none;
 }
 
-li:hover:not(.active) {
-  background-color: rgb(68, 179, 151);
+li a.active,
+li a.active:link,
+li a.active:visited {
   color: white;
+}
+li a.active div {
+  background-color:black;
 }
 
 .table {
@@ -74,3 +85,4 @@ tr:hover {
   background-color: rgb(68, 179, 151);
   color: white;
 }
+
