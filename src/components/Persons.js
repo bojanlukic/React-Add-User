@@ -1,20 +1,24 @@
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import './Persons.css'
 
 function Persons() {
   const [employees, setEmployees] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/PERSON')
+  const refresh = () => {
+    fetch('http://localhost:3000/PERSON') // axios???
       .then(response => response.json())
       .then(data => {
         if (Array.isArray(data)) {
-            setEmployees(data);
-            
+          setEmployees(data);
+
         }
       })
       .catch(err => console.log('Greska pri ucitavanju URL-a'))
+  };
 
+  useEffect(() => {
+    refresh();
   }, []);
 
 
@@ -23,7 +27,7 @@ function Persons() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    
+
   }
 
 
@@ -45,11 +49,21 @@ function Persons() {
   });
 
 
+  const deletePerson = (id) => {
+    console.log('brisemo osobu', id);
+    axios.delete('http://localhost:3000/PERSON/' + id)
+      .then(response => {
+        console.log('Uspesno obrisano');
+        refresh();
+      })
+      .catch(err => console.log('Greska pri ucitavanju URL-a'))
+
+  }; 
 
 
 
-    return (
-      
+  return (
+
     <div className='main'>
       <div>
         <div>
@@ -90,6 +104,7 @@ function Persons() {
             <th>CreatedDate</th>
             <th>City</th>
             <th>Adress</th>
+            <th colSpan='2'>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -104,6 +119,8 @@ function Persons() {
                   <td>{employee.CreatedDate}</td>
                   <td>{employee.City}</td>
                   <td>{employee.Adress}</td>
+                  <td><button>Edit</button></td>
+                  <td><button onClick={() => { deletePerson(employee.id) }}>Delete</button></td>
                 </tr>
               );
             })
@@ -113,9 +130,9 @@ function Persons() {
       </table>
 
       {
-        filteredPersons.length > 0 ? (null) : (
+        filteredPersons.length > 0 ? (null) :
           <div>Ne postoje rezultati za zadate kriterijume pretrage</div>
-        )
+        
       }
     </div>
   );

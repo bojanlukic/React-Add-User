@@ -7,8 +7,9 @@
   min-height: 100vh;
 }
 header {
-  background-color: rgb(68, 179, 151);
-  color: white;
+  background: rgb(219, 247, 245);
+  color: black;
+  font-weight: bolder;
   padding: 20px;
   box-shadow: 1px 3px 7px silver;
 font-size: 1.5em;
