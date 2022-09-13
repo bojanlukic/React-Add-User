@@ -1,40 +1,50 @@
 {
   "PERSON": [
     {
-      "id": 0,
-      "Name": "Bojan",
-      "Surname": "Lukic",
-      "UserType": "Internship",
-      "CreatedDate": "08.06.2022",
-      "City": "Alibunar",
-      "Adress": "Brigadirska 8"
+      "firstName": "Bojan",
+      "lastName": "Lukic",
+      "userType": "Internship",
+      "city": "Alibunar",
+      "adress": "Brigadirska 8",
+      "createdDate": "Tuesday, 13 September 2022",
+      "id": 1
     },
     {
-      "id": 1,
-      "Name": "Ivan",
-      "Surname": "Tomic",
-      "UserType": "Employed",
-      "CreatedDate": "01.01.2019",
-      "City": "Beograd",
-      "Adress": "Vuka Karadzica 3"
+      "firstName": "Ivan ",
+      "lastName": "Tomic",
+      "userType": "Employed",
+      "city": "Banatski Karlovac",
+      "adress": "Oslobodjenja 23",
+      "createdDate": "Tuesday, 13 September 2022",
+      "id": 2
     },
     {
-      "id": 3,
-      "Name": "Milan",
-      "Surname": "Nastanovic",
-      "UserType": "Internship",
-      "CreatedDate": "14.06.2019",
-      "City": "Novi Sad",
-      "Adress": "Trg Slobode 12"
+      "firstName": "Milan",
+      "lastName": "Nastanovic",
+      "userType": "Unemployed",
+      "city": "Beograd",
+      "adress": "Ratka Mitrovica 12",
+      "createdDate": "Tuesday, 13 September 2022",
+      "id": 3
     },
     {
+      "firstName": "Zeljko",
+      "lastName": "Butkovic",
+      "userType": "Internship",
+      "city": "Alibunar",
+      "adress": "Krusedolska 3",
+      "createdDate": "Tuesday, 13 September 2022",
       "id": 4,
-      "Name": "Zeljko",
-      "Surname": "Nikolic",
-      "UserType": "Employed",
-      "CreatedDate": "03.03.2022",
-      "City": "Beograd",
-      "Adress": "Kneginje Zorke 44"
+      "ModifiedDate": "13/09/2022, 13:53:38"
+    },
+    {
+      "firstName": "Ivana ",
+      "lastName": "Drndarski",
+      "userType": "Unemployed",
+      "city": "Dobrica",
+      "adress": "Vuka Karadzica 65",
+      "createdDate": "Tuesday, 13 September 2022",
+      "id": 5
     }
   ]
 }

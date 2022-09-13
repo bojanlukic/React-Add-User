@@ -37,7 +37,7 @@ top: 0;
   padding: 20px;
 }
 ul{ 
-  position:fixed ;
+  position:absolute;
   left: 0;
   top: 56px;
   padding: 0;
@@ -78,6 +78,7 @@ li a.active div {
   border-collapse: collapse;
   box-shadow: 1px 3px 7px silver;
   
+  
 }
 tr:nth-child(even) {
   background: rgb(219, 247, 245);
@@ -93,5 +94,8 @@ th {
 tr:hover {
   background-color: rgb(68, 179, 151);
   color: white;
+}
+tr{
+  font-size: 19px;
 }
 

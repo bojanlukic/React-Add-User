@@ -1,9 +1,33 @@
-.btn {
-    color: white;
-    background-color: rgb(68, 179, 151);
-    cursor: pointer;
-    padding: 4px 8px;
+.btnSearch {
+  color: white;
+  background-color: black;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 25px;
 }
-.btn:hover {
-    background-color:black;
+.btnSearch:hover {
+  background-color: rgb(68, 179, 151);
 }
+.btnCreate {
+  background: black;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 25px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+.btnCreate:hover {
+  background-color: rgb(68, 179, 151);
+}
+.btnEdit:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  
+}
+.btnDelete:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+

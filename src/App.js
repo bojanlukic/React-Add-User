@@ -1,8 +1,9 @@
 import "./../src/App.css";
 import Persons from "./components/Persons";
 import About from "./components/About";
-import Contact from "./components/Contact";
 import { BrowserRouter as Router, Route, Routes, NavLink } from "react-router-dom";
+import AddPersonForm from "./components/AddPersonForm";
+import EditPersonForm from "./components/EditPersonForm";
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
             <div className="list">  
               <ul>
                 <li><NavLink activeclassname="active" to="/"><div>Home</div></NavLink></li>
-                <li><NavLink activeclassname="active" to="about"><div>About</div></NavLink></li>
-                <li><NavLink activeclassname="active" to="contact"><div>Contact</div></NavLink></li>
+                <li><NavLink activeclassname="active" to="/about"><div>About</div></NavLink></li>
+                <li><NavLink activeclassname="active" to="/add"><div>Add person</div></NavLink></li>
               </ul>
             </div>
           </div>
@@ -23,7 +24,8 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Persons />} />
               <Route exact path="/about" element={<About />} />
-              <Route exact path="/contact" element={<Contact />} />
+              <Route exact path="/add" element={<AddPersonForm />} />
+              <Route exact path="/edit/:id" element={<EditPersonForm />} />
             </Routes>
           </div>
         </div>
