@@ -4,7 +4,7 @@
     margin-bottom: 12px;
     margin-left: 35px;
 }
-.btnAdd{
+.btnSave{
     cursor: pointer;
     background-color: black;
     color: white;
@@ -12,8 +12,9 @@
     border-radius: 25px;
     transition: all 0.3s ease;
 
-}
-.btnAdd:hover{
-    background-color: rgb(68, 179, 151);
     
+}
+.btnSave:hover {
+    background-color: rgb(68, 179, 151);
+
 }

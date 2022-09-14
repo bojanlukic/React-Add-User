@@ -49,7 +49,7 @@ function AddPersonForm() {
 
   return (
     <div className="app">
-      <h1>Add new person</h1>
+      <h1>Add new user</h1>
       <form onSubmit={submit}>
         <div className="field">
           <label>First Name</label>
@@ -106,7 +106,7 @@ function AddPersonForm() {
           />
         </div>
 
-        <button type="submit">Add user</button>
+        <button className="btnAdd" type="submit">Add user</button>
       </form>
     </div>
   );

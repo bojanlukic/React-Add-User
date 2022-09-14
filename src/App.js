@@ -5,18 +5,19 @@ import { BrowserRouter as Router, Route, Routes, NavLink } from "react-router-do
 import AddPersonForm from "./components/AddPersonForm";
 import EditPersonForm from "./components/EditPersonForm";
 
+
 function App() {
   return (
     <Router>
       <div className="app">
-        <header>Application</header>
+        <header>Users</header>
         <div className="page-body">
           <div>
             <div className="list">  
               <ul>
                 <li><NavLink activeclassname="active" to="/"><div>Home</div></NavLink></li>
+                <li><NavLink activeclassname="active" to="/add"><div>Add User</div></NavLink></li>
                 <li><NavLink activeclassname="active" to="/about"><div>About</div></NavLink></li>
-                <li><NavLink activeclassname="active" to="/add"><div>Add person</div></NavLink></li>
               </ul>
             </div>
           </div>

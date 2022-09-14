@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Persons.css'
 
-function Persons() {
+function Persons(props) {
   const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
 
@@ -56,6 +56,7 @@ function Persons() {
     axios.delete('http://localhost:3000/PERSON/' + id)
       .then(response => {
         console.log('Uspesno obrisano');
+        
         refresh();
       })
       .catch(err => console.log('Greska pri ucitavanju URL-a'))
@@ -67,7 +68,7 @@ function Persons() {
   return (
     <div className='main'>
       <div>
-        <div>
+        <div className='input'>
           <form onSubmit={submitHandler}>
             <label>Name</label>&nbsp;
             <input
@@ -104,7 +105,7 @@ function Persons() {
             <th>Usertype</th>
             <th>City</th>
             <th>Adress</th>
-            <th>CreatedDate</th>
+            <th>Created Date</th>
             <th colSpan='2'>Action</th>
           </tr>
         </thead>
@@ -120,7 +121,7 @@ function Persons() {
                   <td>{employee.city}</td>
                   <td>{employee.adress}</td>
                   <td>{employee.createdDate}</td>
-                  <td><button className='btnEdit' onClick={() => { navigate('/edit/' + employee.id) }}>Edit</button></td>
+                  <td ><button className='btnEdit' onClick={() => { navigate('/edit/' + employee.id) }}>Edit</button></td>
                   <td><button className='btnDelete' onClick={(e) => { deletePerson(employee.id) }}>Delete</button></td>
                 </tr>
               );
@@ -131,7 +132,7 @@ function Persons() {
       </table>
 
       <button className='btnCreate'
-        onClick={(e) => { navigate('/add') }}>Create new person</button>
+        onClick={(e) => { navigate('/add') }}>Create new user</button>
 
       {
         filteredPersons.length > 0 ? (null) :

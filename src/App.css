@@ -5,6 +5,7 @@
   align-items: stretch;
   flex-wrap: nowrap;
   min-height: 100vh;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 header {
   background: rgb(219, 247, 245);
@@ -12,9 +13,9 @@ header {
   font-weight: bolder;
   padding: 20px;
   box-shadow: 1px 3px 7px silver;
-font-size: 1.5em;
-position: sticky;
-top: 0;
+  font-size: 27px;
+ 
+  top: 0;
 }
 .page-body {
   display: flex;
@@ -28,16 +29,15 @@ top: 0;
   padding: 20px;
   background-color: rgb(68, 179, 151);
   box-shadow: 1px 3px 7px silver;
-  width:110px;
+  width: 110px;
   min-height: 100vh;
-  
 }
 .main {
   text-align: center;
   padding: 20px;
 }
-ul{ 
-  position:absolute;
+ul {
+  position: absolute;
   left: 0;
   top: 56px;
   padding: 0;
@@ -50,8 +50,9 @@ li div {
   display: block;
   padding: 15px;
   background-color: rgb(68, 179, 151);
-  width:120px;
+  width: 120px;
   height: 30px;
+  
 }
 li div:hover {
   background-color: black;
@@ -70,22 +71,22 @@ li a.active:visited {
   color: white;
 }
 li a.active div {
-  background-color:black;
+  background-color: black;
 }
 
 .table {
   margin-top: 35px;
   border-collapse: collapse;
   box-shadow: 1px 3px 7px silver;
-  
-  
 }
 tr:nth-child(even) {
   background: rgb(219, 247, 245);
 }
-td,th {
+td,
+th {
   padding: 8px;
   border: 1px solid rgb(190, 182, 182);
+  font-size: 16px;
 }
 th {
   background-color: black;
@@ -94,8 +95,5 @@ th {
 tr:hover {
   background-color: rgb(68, 179, 151);
   color: white;
-}
-tr{
-  font-size: 19px;
-}
 
+}

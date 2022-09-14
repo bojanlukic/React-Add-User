@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import '../components/EditPersonForm.css'
 
 function EditPersonForm() {
   const navigate = useNavigate();
@@ -75,7 +76,7 @@ function EditPersonForm() {
 
   return (
     <div>
-      <h1>Edit person (ID {id})</h1>
+      <h1>Edit user (ID {id})</h1>
       <form onSubmit={submit}>
 
         <div className="field">
@@ -127,7 +128,7 @@ function EditPersonForm() {
           />
         </div>
 
-        <button type="submit">Save changes</button>
+        <button className='btnSave' type="submit">Save changes</button>
       </form>
     </div>
   )
