@@ -7,54 +7,37 @@
       "city": "Alibunar",
       "adress": "Brigadirska 8",
       "createdDate": "Tuesday, 13 September 2022",
-      "id": 1
+      "id": 1,
+      "ModifiedDate": "Thursday, 15 September 2022"
     },
     {
-      "firstName": "Ivan ",
-      "lastName": "Tomic",
-      "userType": "Employed",
-      "city": "Banatski Karlovac",
-      "adress": "Oslobodjenja 23",
-      "createdDate": "Tuesday, 13 September 2022",
-      "id": 2,
-      "ModifiedDate": "14/09/2022, 12:00:42"
-    },
-    {
-      "firstName": "Milan",
-      "lastName": "Nastanovic",
-      "userType": "Unemployed",
-      "city": "Beograd",
-      "adress": "Ratka Mitrovica 12",
-      "createdDate": "Tuesday, 13 September 2022",
-      "id": 3
-    },
-    {
-      "firstName": "Zeljko",
-      "lastName": "Butkovic",
-      "userType": "Internship",
-      "city": "Alibunar",
-      "adress": "Krusedolska 3",
-      "createdDate": "Tuesday, 13 September 2022",
-      "id": 4,
-      "ModifiedDate": "13/09/2022, 13:53:38"
-    },
-    {
-      "firstName": "Ivana ",
+      "firstName": "Ivana",
       "lastName": "Drndarski",
       "userType": "Unemployed",
-      "city": "Dobrica",
-      "adress": "Vuka Karadzica 65",
-      "createdDate": "Tuesday, 13 September 2022",
-      "id": 5
+      "city": "dfgdfgdfg",
+      "adress": "Ratka Mitrovica 12",
+      "createdDate": "Thursday, 15 September 2022",
+      "id": 2,
+      "ModifiedDate": "Thursday, 15 September 2022"
     },
     {
-      "firstName": "Vladimir",
-      "lastName": "Zivanov",
+      "firstName": "Branka",
+      "lastName": "Lukic",
       "userType": "Unemployed",
-      "city": "Nis",
-      "adress": "Severni bulevar 144",
-      "createdDate": "Wednesday, 14 September 2022",
-      "id": 6
+      "city": "Pancevo",
+      "adress": "Bratstva i Jedinstva 43",
+      "createdDate": "Thursday, 15 September 2022",
+      "id": 3,
+      "ModifiedDate": "Thursday, 15 September 2022"
+    },
+    {
+      "firstName": "ww",
+      "lastName": "aaa",
+      "userType": "Internship",
+      "city": "dddd",
+      "adress": "www",
+      "createdDate": "Thursday, 15 September 2022",
+      "id": 4
     }
   ]
 }

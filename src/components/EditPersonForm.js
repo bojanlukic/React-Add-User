@@ -1,13 +1,12 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import '../components/EditPersonForm.css'
 
 function EditPersonForm() {
   const navigate = useNavigate();
-  let { id } = useParams();
+  let { id } = useParams();         //????
 
-  // const [employee, setEmployee] = useState({});
+ 
 
   const [state, setState] = useState({
     firstName: "",
@@ -22,10 +21,9 @@ function EditPersonForm() {
       .then(response => response.json())
       .then(data => {
         if (data && parseInt(data.id) >= 0 && data.firstName) {
-          // setEmployee(data);
           setState({
             ...state,
-            ...data
+            ...data         // kako ovo funkcionise
           });
         }
       })
@@ -33,7 +31,7 @@ function EditPersonForm() {
   };
 
   useEffect(() => {
-    if (parseInt(id) >= 0) {
+    if (parseInt(id) >= 0) {        //?????
       fetchUserData(id);
     }
   }, [id]);
@@ -42,11 +40,11 @@ function EditPersonForm() {
   const handleChange = (e) => {
     // univerzalni handler za onChange event koji funkcionise za sva input polja, textarea i checkbox polja.
     const target = e.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-    setState({
+    const value = target.type === 'checkbox' ? target.checked : target.value;    
+    const name = target.name;                    
+    setState({                            //?????
       ...state,
-      [name]: value
+      [name]: value                     
     });
   };
 
@@ -55,22 +53,40 @@ function EditPersonForm() {
     e.preventDefault();
     console.log('Submitujemo podatke za izmenu korisnika:', state);
 
-    const timestamp = Date.now();
-    const d = new Date(timestamp);
-    const dateFormated = d.toLocaleString('en-GB');
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = new Date(Date.now());
+    const dateFormated = date.toLocaleString("en-GB",options);
 
-    axios.put('http://localhost:3000/PERSON/' + id, {
+
+    /*axios.put('http://localhost:3000/PERSON/' + id, {
       ...state,
       // CreatedDate: dateFormated
       ModifiedDate: dateFormated
     })
       .then(response => {
         console.log('Uspesno izmenjen korisnik');
-        // refresh();
+        // refresh();       zasto ovde ne osvezavamo stranicu kad zavrsimo editovanje?
         navigate('/');
       })
       .catch(err => console.log('Greska pri ucitavanju URL-a'))
-
+*/
+    fetch('http://localhost:3000/PERSON/' + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify({
+        ...state,
+        ModifiedDate: dateFormated
+      })
+    })
+      .then(response => {
+        console.log('Uspesno izmenjena osoba',id);
+        navigate('/')
+      })
+    .catch(err =>console.log('Greska,pogresna URL adresu!'))
+      
+    
   };
 
 
@@ -129,6 +145,8 @@ function EditPersonForm() {
         </div>
 
         <button className='btnSave' type="submit">Save changes</button>
+        <button className="btnCancel"onClick={() => { navigate('/') }}>Cancel</button>
+
       </form>
     </div>
   )

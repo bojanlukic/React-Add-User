@@ -1,3 +1,4 @@
+
 .app {
   display: flex;
   flex-direction: column;
@@ -8,8 +9,8 @@
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 header {
-  background: rgb(219, 247, 245);
-  color: black;
+  background-color: rgb(68, 179, 151);
+  color: white;
   font-weight: bolder;
   padding: 20px;
   box-shadow: 1px 3px 7px silver;
@@ -26,32 +27,30 @@ header {
   flex: 1;
 }
 .list {
-  padding: 20px;
+  padding: 0px;
   background-color: rgb(68, 179, 151);
   box-shadow: 1px 3px 7px silver;
-  width: 110px;
+  width: 120px;
   min-height: 100vh;
 }
 .main {
-  text-align: center;
+  width: 100%;
   padding: 20px;
+  padding-left: 45px;
+  text-align: left;
 }
 ul {
-  position: absolute;
-  left: 0;
-  top: 56px;
-  padding: 0;
-  width: 120px;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
 }
 li {
   display: block;
 }
 li div {
   display: block;
-  padding: 15px;
+  padding: 20px;
   background-color: rgb(68, 179, 151);
-  width: 120px;
-  height: 30px;
   
 }
 li div:hover {
@@ -85,12 +84,13 @@ tr:nth-child(even) {
 td,
 th {
   padding: 8px;
-  border: 1px solid rgb(190, 182, 182);
   font-size: 16px;
+  
 }
 th {
-  background-color: black;
-  color: white;
+  background: rgb(219, 247, 245);
+  color: black;
+  font-weight: 900;
 }
 tr:hover {
   background-color: rgb(68, 179, 151);

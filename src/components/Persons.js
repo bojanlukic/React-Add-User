@@ -1,22 +1,20 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Persons.css'
 
-function Persons(props) {
+function Persons() {
   const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
 
   const refresh = () => {
-    fetch('http://localhost:3000/PERSON') 
+    fetch('http://localhost:3000/PERSON')
       .then(response => response.json())
       .then(data => {
         if (Array.isArray(data)) {
           setEmployees(data);
-
         }
       })
-      .catch(err => console.log('Greska pri ucitavanju URL-a'))
+      .catch(err => console.log('Greska pri ucitavanju URL-a', err))
   };
 
   useEffect(() => {
@@ -51,52 +49,70 @@ function Persons(props) {
   });
 
 
-  const deletePerson = (id) => {
+  /*
+const filteredPersons = employees.filter((item) => {
+  return name.toLowerCase() === '' ? item : item.firstName.toLowerCase().includes(name) 
+});
+// kako ovde da ubacim filtriranje usertypa u ovu promenljivu? 
+
+  */
+
+
+ /* const deletePerson = (id) => {
     console.log('brisemo osobu', id);
     axios.delete('http://localhost:3000/PERSON/' + id)
       .then(response => {
         console.log('Uspesno obrisano');
-        
+
         refresh();
       })
       .catch(err => console.log('Greska pri ucitavanju URL-a'))
 
-  };
+  };*/
 
+  const deletePerson = (id) => {
+    console.log('brisemo osobu', id);
+    fetch('http://localhost:3000/PERSON/' + id, {
+      method: 'DELETE',
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log('Uspesno obrisana osoba', id)
+        refresh();
+      })
+      .catch(err => console.log('Nije ispravan URL!'))
+  }
 
 
   return (
-    <div className='main'>
-      <div>
-        <div className='input'>
-          <form onSubmit={submitHandler}>
-            <label>Name</label>&nbsp;
-            <input
-              type="text"
-              name="name"
-              onChange={(e) => (setName(e.target.value))}
-            />
-            &nbsp;
-            &nbsp;
-            <label>UserType</label>&nbsp;
-            <select
-              name="usertype"
-              onChange={(e) => (setUserType(e.target.value))}
-            >
-              <option value="">--Choose Usertype--</option>
-              <option value="Internship">Internship</option>
-              <option value="Employed">Employed</option>
-              <option value="Unemployed">Unemployed</option>
-            </select>
-            &nbsp;
-            &nbsp;
-            <button type="submit" className='btnSearch'>Search</button>
-          </form>
-        </div>
+    <div>
+      <div className='input'>
+        <form onSubmit={submitHandler}>
+          <label>Name</label>&nbsp;
+          <input
+            type="text"
+            name="name"
+            onChange={(e) => (setName(e.target.value))}
+          />
+          &nbsp;
+          &nbsp;
+          <label>UserType</label>&nbsp;
+          <select
+            name="usertype"
+            onChange={(e) => (setUserType(e.target.value))}
+          >
+            <option value="">--Choose Usertype--</option>
+            <option value="Internship">Internship</option>
+            <option value="Employed">Employed</option>
+            <option value="Unemployed">Unemployed</option>
+          </select>
+          &nbsp;
+          &nbsp;
+          <button type="submit" className='btnSearch'>Search</button>
+        </form>
       </div>
 
-
-      <table align='center' className='table'>
+      <table className='table'>
         <thead>
           <tr>
             <th>ID</th>
@@ -130,15 +146,12 @@ function Persons(props) {
 
         </tbody>
       </table>
+      
+            {filteredPersons.length > 0 ? (null) :
+                <div className='info'>Ne postoje rezultati za zadate kriterijume pretrage</div>}
 
       <button className='btnCreate'
         onClick={(e) => { navigate('/add') }}>Create new user</button>
-
-      {
-        filteredPersons.length > 0 ? (null) :
-          <div>Ne postoje rezultati za zadate kriterijume pretrage</div>
-
-      }
     </div>
   );
 }

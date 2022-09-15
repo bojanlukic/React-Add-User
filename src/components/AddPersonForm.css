@@ -2,18 +2,34 @@
     text-align: left;
     width: 110px;
     margin-bottom: 12px;
-    margin-left: 35px;
+    margin-left: 0px;
 }
-.btnAdd{
+
+.btnAdd {
     cursor: pointer;
     background-color: black;
     color: white;
     padding: 8px;
     border-radius: 25px;
     transition: all 0.3s ease;
-
-}
-.btnAdd:hover{
-    background-color: rgb(68, 179, 151);
+    margin-right: 8px;
     
+}
+
+.btnAdd:hover {
+    background-color: rgb(68, 179, 151);
+}
+
+.btnCancel{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    
+}
+.btnCancel:hover {
+    background-color: rgb(68, 179, 151);
+
 }

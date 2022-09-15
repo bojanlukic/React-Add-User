@@ -1,7 +1,6 @@
-import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../components/AddPersonForm.css'
+import "../components/AddPersonForm.css";
 
 function AddPersonForm() {
   const navigate = useNavigate();
@@ -28,13 +27,38 @@ function AddPersonForm() {
   const submit = (e) => {
     e.preventDefault();
     console.log("Submitujemo podatke za novog korisnika:", state);
-    
-      
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const newDate = new Date(Date.now());
-    const dateFormated = newDate.toLocaleString("en-GB",options);
 
-    axios
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const date = new Date(Date.now());
+    const dateFormated = date.toLocaleString("en-GB", options);
+
+
+    fetch('http://localhost:3000/PERSON/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...state,
+        createdDate: dateFormated
+      })
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log('Uspesno dodata osoba')
+        navigate('/')
+      
+      })
+    .catch(err => console.log('Greska'))
+  
+  }
+
+    /*axios
       .post("http://localhost:3000/PERSON/", {
         ...state,
         createdDate: dateFormated
@@ -44,8 +68,8 @@ function AddPersonForm() {
         // refresh();
         navigate("/");
       })
-      .catch((err) => console.log("Greska pri ucitavanju URL-a"));
-  };
+      .catch((err) => console.log("Greska pri ucitavanju URL-a"));*/
+ 
 
   return (
     <div className="app">
@@ -105,8 +129,19 @@ function AddPersonForm() {
             required
           />
         </div>
-
-        <button className="btnAdd" type="submit">Add user</button>
+        <div className="twoButtons">
+          <button className="btnAdd" type="submit">
+            Add user
+          </button>
+          <button
+            className="btnCancel"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );
