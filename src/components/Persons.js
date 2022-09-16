@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Persons.css'
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import ClearIcon from '@mui/icons-material/Clear';
+
 
 function Persons() {
   const navigate = useNavigate();
@@ -10,7 +15,7 @@ function Persons() {
     fetch('http://localhost:3000/PERSON')
       .then(response => response.json())
       .then(data => {
-        if (Array.isArray(data)) {
+        if (Array.isArray(data)) {                  //da li treba async i await?
           setEmployees(data);
         }
       })
@@ -25,12 +30,8 @@ function Persons() {
   const [name, setName] = useState('');
   const [userType, setUserType] = useState('');
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-  }
-
-
+  
+  
   const filteredPersons = employees.filter((item) => {
     let test = true;
 
@@ -53,25 +54,15 @@ function Persons() {
 const filteredPersons = employees.filter((item) => {
   return name.toLowerCase() === '' ? item : item.firstName.toLowerCase().includes(name) 
 });
-// kako ovde da ubacim filtriranje usertypa u ovu promenljivu? 
 
+
+ kako ovde da ubacim filtriranje usertypa u ovu promenljivu? 
   */
 
 
- /* const deletePerson = (id) => {
-    console.log('brisemo osobu', id);
-    axios.delete('http://localhost:3000/PERSON/' + id)
-      .then(response => {
-        console.log('Uspesno obrisano');
-
-        refresh();
-      })
-      .catch(err => console.log('Greska pri ucitavanju URL-a'))
-
-  };*/
-
-  const deletePerson = (id) => {
-    console.log('brisemo osobu', id);
+ 
+ const deletePerson = (id) => {
+   console.log('brisemo osobu', id);
     fetch('http://localhost:3000/PERSON/' + id, {
       method: 'DELETE',
     })
@@ -80,20 +71,37 @@ const filteredPersons = employees.filter((item) => {
         console.log('Uspesno obrisana osoba', id)
         refresh();
       })
-      .catch(err => console.log('Nije ispravan URL!'))
+      .catch(err => console.log('Nije ispravan URL!'))        // kad namerno pogresim url adresu ne izbacuje mi poruku u konzoli
   }
-
+  
+  /* const deletePerson = (id) => {
+     console.log('brisemo osobu', id);
+     axios.delete('http://localhost:3000/PERSON/' + id)
+     .then(response => {
+       console.log('Uspesno obrisano');
+         refresh();
+       })
+       .catch(err => console.log('Greska pri ucitavanju URL-a'))
+      };*/
+  
+  
+  
+      const submitHandler = (e) => {
+        e.preventDefault();
+     
+      }
 
   return (
     <div>
       <div className='input'>
         <form onSubmit={submitHandler}>
           <label>Name</label>&nbsp;
-          <input
+          <input 
             type="text"
             name="name"
+            placeholder='Type...'
             onChange={(e) => (setName(e.target.value))}
-          />
+            />
           &nbsp;
           &nbsp;
           <label>UserType</label>&nbsp;
@@ -109,6 +117,8 @@ const filteredPersons = employees.filter((item) => {
           &nbsp;
           &nbsp;
           <button type="submit" className='btnSearch'>Search</button>
+         
+
         </form>
       </div>
 
@@ -122,7 +132,7 @@ const filteredPersons = employees.filter((item) => {
             <th>City</th>
             <th>Adress</th>
             <th>Created Date</th>
-            <th colSpan='2'>Action</th>
+            <th className='alignAction' colSpan='2'>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -137,8 +147,10 @@ const filteredPersons = employees.filter((item) => {
                   <td>{employee.city}</td>
                   <td>{employee.adress}</td>
                   <td>{employee.createdDate}</td>
-                  <td ><button className='btnEdit' onClick={() => { navigate('/edit/' + employee.id) }}>Edit</button></td>
-                  <td><button className='btnDelete' onClick={(e) => { deletePerson(employee.id) }}>Delete</button></td>
+                  <td ><button className='btnEdit' onClick={() => { navigate('/edit/' + employee.id) }}><div className='edit'>Edit</div><EditOutlinedIcon/></button></td>
+                  <td><button className='btnDelete' onClick={(e) => { deletePerson(employee.id) }}><div className='edit'>Delete</div><DeleteOutlineOutlinedIcon/></button></td>
+                                                                            
+                                                                      {/*???*/}
                 </tr>
               );
             })
@@ -151,7 +163,7 @@ const filteredPersons = employees.filter((item) => {
                 <div className='info'>Ne postoje rezultati za zadate kriterijume pretrage</div>}
 
       <button className='btnCreate'
-        onClick={(e) => { navigate('/add') }}>Create new user</button>
+        onClick={(e) => { navigate('/add') }}>New user <PersonAddAltOutlinedIcon/> </button>
     </div>
   );
 }

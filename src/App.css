@@ -15,8 +15,10 @@ header {
   padding: 20px;
   box-shadow: 1px 3px 7px silver;
   font-size: 27px;
- 
-  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content:flex-start;
+
 }
 .page-body {
   display: flex;
@@ -74,7 +76,7 @@ li a.active div {
 }
 
 .table {
-  margin-top: 35px;
+  margin-top: 27px;
   border-collapse: collapse;
   box-shadow: 1px 3px 7px silver;
 }
@@ -96,4 +98,13 @@ tr:hover {
   background-color: rgb(68, 179, 151);
   color: white;
 
+}
+.alignIcon {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  
+}
+.MuiSvgIcon-root {
+  margin-left: 10px;
 }

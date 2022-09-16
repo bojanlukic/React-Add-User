@@ -14,30 +14,48 @@
       "firstName": "Ivana",
       "lastName": "Drndarski",
       "userType": "Unemployed",
-      "city": "dfgdfgdfg",
+      "city": "Beograd",
       "adress": "Ratka Mitrovica 12",
       "createdDate": "Thursday, 15 September 2022",
       "id": 2,
-      "ModifiedDate": "Thursday, 15 September 2022"
+      "ModifiedDate": "Friday, 16 September 2022"
     },
     {
       "firstName": "Branka",
       "lastName": "Lukic",
-      "userType": "Unemployed",
+      "userType": "Employed",
       "city": "Pancevo",
       "adress": "Bratstva i Jedinstva 43",
       "createdDate": "Thursday, 15 September 2022",
       "id": 3,
-      "ModifiedDate": "Thursday, 15 September 2022"
+      "ModifiedDate": "Friday, 16 September 2022"
     },
     {
-      "firstName": "ww",
-      "lastName": "aaa",
-      "userType": "Internship",
-      "city": "dddd",
-      "adress": "www",
-      "createdDate": "Thursday, 15 September 2022",
+      "firstName": "Marko",
+      "lastName": "Selmic",
+      "userType": "Employed",
+      "city": "Novi Sad",
+      "adress": "Radnicka 2",
+      "createdDate": "Friday, 16 September 2022",
       "id": 4
+    },
+    {
+      "firstName": "Ivan",
+      "lastName": "Tomic",
+      "userType": "Unemployed",
+      "city": "Vrsac",
+      "adress": "Zarka Zrenjanina 87",
+      "createdDate": "Friday, 16 September 2022",
+      "id": 5
+    },
+    {
+      "firstName": "Milan",
+      "lastName": "Nastanovic",
+      "userType": "Unemployed",
+      "city": "Pancevo",
+      "adress": "Krusedolska 3",
+      "createdDate": "Friday, 16 September 2022",
+      "id": 6
     }
   ]
 }

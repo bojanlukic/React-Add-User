@@ -23,7 +23,7 @@ function EditPersonForm() {
         if (data && parseInt(data.id) >= 0 && data.firstName) {
           setState({
             ...state,
-            ...data         // kako ovo funkcionise
+            ...data         // ??
           });
         }
       })
@@ -34,11 +34,10 @@ function EditPersonForm() {
     if (parseInt(id) >= 0) {        //?????
       fetchUserData(id);
     }
-  }, [id]);
+  }, [id]);  
 
 
   const handleChange = (e) => {
-    // univerzalni handler za onChange event koji funkcionise za sva input polja, textarea i checkbox polja.
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;    
     const name = target.name;                    
@@ -58,18 +57,6 @@ function EditPersonForm() {
     const dateFormated = date.toLocaleString("en-GB",options);
 
 
-    /*axios.put('http://localhost:3000/PERSON/' + id, {
-      ...state,
-      // CreatedDate: dateFormated
-      ModifiedDate: dateFormated
-    })
-      .then(response => {
-        console.log('Uspesno izmenjen korisnik');
-        // refresh();       zasto ovde ne osvezavamo stranicu kad zavrsimo editovanje?
-        navigate('/');
-      })
-      .catch(err => console.log('Greska pri ucitavanju URL-a'))
-*/
     fetch('http://localhost:3000/PERSON/' + id, {
       method: 'PUT',
       headers: {
@@ -80,13 +67,25 @@ function EditPersonForm() {
         ModifiedDate: dateFormated
       })
     })
-      .then(response => {
-        console.log('Uspesno izmenjena osoba',id);
+    .then(response => {
+      console.log('Uspesno izmenjena osoba',id);
         navigate('/')
       })
-    .catch(err =>console.log('Greska,pogresna URL adresu!'))
-      
+      .catch(err => console.log('Greska,pogresna URL adresu!'))
     
+    
+      /*axios.put('http://localhost:3000/PERSON/' + id, {
+        ...state,
+        // CreatedDate: dateFormated
+        ModifiedDate: dateFormated
+      })
+        .then(response => {
+          console.log('Uspesno izmenjen korisnik');
+          navigate('/');
+        })
+        .catch(err => console.log('Greska pri ucitavanju URL-a'))
+    */
+      
   };
 
 

@@ -13,23 +13,39 @@
 .btnCreate {
   background: black;
   color: white;
-  padding: 10px 12px;
+  padding: 5px 7px;
   border-radius: 25px;
-  margin-top: 25px;
+  margin-top: 27px;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 .btnCreate:hover {
   background-color: rgb(68, 179, 151);
 }
 .btnEdit {
-  padding: 0px 12px;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+    height: 25px; 
+    border-radius: 6px;
+    border: 1px solid black
 }
 .btnEdit:hover {
   background-color: black;
   color: white;
   cursor: pointer;  
+}
+.btnDelete {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  height: 25px;
+  border-radius: 6px;
+  border: 1px solid black
 }
 .btnDelete:hover {
   background-color: black;
@@ -37,6 +53,12 @@
   cursor: pointer;
 }
 .info {
-margin-top: 10px;
+margin-top: 15px;
 
+}
+.alignAction {
+  text-align: center;
+}
+.edit{
+  margin-right: -6px;
 }

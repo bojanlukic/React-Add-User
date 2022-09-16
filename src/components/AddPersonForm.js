@@ -49,7 +49,7 @@ function AddPersonForm() {
       })
     })
       .then(response => response.json())
-      .then(response => {
+      .then(data => {
         console.log('Uspesno dodata osoba')
         navigate('/')
       
