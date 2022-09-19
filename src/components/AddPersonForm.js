@@ -14,7 +14,6 @@ function AddPersonForm() {
   });
 
   const handleChange = (e) => {
-    // univerzalni handler za onChange event koji funkcionise za sva input polja, textarea i checkbox polja.
     const target = e.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -37,39 +36,23 @@ function AddPersonForm() {
     const date = new Date(Date.now());
     const dateFormated = date.toLocaleString("en-GB", options);
 
-
-    fetch('http://localhost:3000/PERSON/', {
-      method: 'POST',
+    fetch("http://localhost:3000/PERSON/", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         ...state,
-        createdDate: dateFormated
-      })
+        createdDate: dateFormated,
+      }),
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Uspesno dodata osoba')
-        navigate('/')
-      
-      })
-    .catch(err => console.log('Greska'))
-  
-  }
-
-    /*axios
-      .post("http://localhost:3000/PERSON/", {
-        ...state,
-        createdDate: dateFormated
-      })
-      .then((response) => {
-        console.log("Uspesno dodat novi korisnik");
-        // refresh();
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Uspesno dodata osoba");
         navigate("/");
       })
-      .catch((err) => console.log("Greska pri ucitavanju URL-a"));*/
- 
+      .catch((err) => console.log("Greska"));
+  };
 
   return (
     <div className="app">

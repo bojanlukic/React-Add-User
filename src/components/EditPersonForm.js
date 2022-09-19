@@ -4,7 +4,7 @@ import '../components/EditPersonForm.css'
 
 function EditPersonForm() {
   const navigate = useNavigate();
-  let { id } = useParams();         //????
+  let { id } = useParams();      
 
  
 
@@ -23,7 +23,7 @@ function EditPersonForm() {
         if (data && parseInt(data.id) >= 0 && data.firstName) {
           setState({
             ...state,
-            ...data         // ??
+            ...data      
           });
         }
       })
@@ -31,7 +31,7 @@ function EditPersonForm() {
   };
 
   useEffect(() => {
-    if (parseInt(id) >= 0) {        //?????
+    if (parseInt(id) >= 0) {      
       fetchUserData(id);
     }
   }, [id]);  
@@ -41,7 +41,7 @@ function EditPersonForm() {
     const target = e.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;    
     const name = target.name;                    
-    setState({                            //?????
+    setState({                          
       ...state,
       [name]: value                     
     });
@@ -73,18 +73,6 @@ function EditPersonForm() {
       })
       .catch(err => console.log('Greska,pogresna URL adresu!'))
     
-    
-      /*axios.put('http://localhost:3000/PERSON/' + id, {
-        ...state,
-        // CreatedDate: dateFormated
-        ModifiedDate: dateFormated
-      })
-        .then(response => {
-          console.log('Uspesno izmenjen korisnik');
-          navigate('/');
-        })
-        .catch(err => console.log('Greska pri ucitavanju URL-a'))
-    */
       
   };
 

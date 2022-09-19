@@ -1,15 +1,3 @@
-.btnSearch {
-  color: white;
-  background-color: black;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-
-}
-.btnSearch:hover {
-  background-color: rgb(68, 179, 151);
-}
 .btnCreate {
   background: black;
   color: white;

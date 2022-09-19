@@ -1,24 +1,42 @@
 import "./../src/App.css";
 import Persons from "./components/Persons";
 import About from "./components/About";
-import { BrowserRouter as Router, Route, Routes, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  NavLink,
+} from "react-router-dom";
 import AddPersonForm from "./components/AddPersonForm";
 import EditPersonForm from "./components/EditPersonForm";
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 function App() {
   return (
     <Router>
       <div className="app">
-        <header>Users</header>
+        <header>Add User</header>
         <div className="page-body">
           <div>
-            <div className="list">  
+            <div className="list">
               <ul>
-                <li><NavLink activeclassname="active" to="/"><div className="alignIcon">Home <HomeOutlinedIcon/></div></NavLink></li>
-                <li><NavLink activeclassname="active" to="/add"><div>Add User </div></NavLink></li>
-                <li><NavLink activeclassname="active" to="/about"><div>About</div></NavLink></li>
+                <li>
+                  <NavLink activeclassname="active" to="/">
+                    <div className="alignIcon">
+                      Home <HomeOutlinedIcon />
+                    </div>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink activeclassname="active" to="/add">
+                    <div>New User </div>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink activeclassname="active" to="/about">
+                    <div>About</div>
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>
@@ -37,4 +55,3 @@ function App() {
 }
 
 export default App;
-
