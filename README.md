@@ -1,4 +1,4 @@
-# Tabela za editovanje korisnika - Add User
+# Tabela za korisnike - Add User
 
 Add User je aplikacija koja sluzi za citanje, dodavanje, editovanje i brisanje korisnika.
 
