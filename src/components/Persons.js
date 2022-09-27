@@ -10,7 +10,7 @@ function Persons() {
   const [employees, setEmployees] = useState([]);
   const [name, setName] = useState("");
   const [userType, setUserType] = useState("");
-  const [search, setSearch] = useState("");
+ 
   
   useEffect(() => {
     refresh();
@@ -60,21 +60,16 @@ function Persons() {
       .catch((err) => console.log("Nije ispravan URL!", err));
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    setSearch(filteredPersons)
-
-  }
+ 
 
 
   return (
     <div>
       <div className="input">
-        <form onSubmit={submitHandler}>
+        <form>
           <label>Name</label>&nbsp;
           <input
             type="text"
-          
             name="name"
             placeholder="Type..."
             onChange={(e) => setName(e.target.value)}
@@ -88,7 +83,6 @@ function Persons() {
             <option value="Unemployed">Unemployed</option>
           </select>
           &nbsp; &nbsp;
-          <button type= "submit" >search</button>
         </form>
       </div>
 

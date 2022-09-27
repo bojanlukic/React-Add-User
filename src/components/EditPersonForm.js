@@ -12,7 +12,14 @@ function EditPersonForm() {
     city: "",
     adress: "",
   });
+  
+  useEffect(() => {
+    if (parseInt(id) >= 0) {
+      fetchUserData(id);
+    }
+  }, [id]);
 
+  
   const fetchUserData = (id) => {
     fetch(`http://localhost:3000/PERSON/${id}`)
       .then((res) => res.json())
@@ -27,11 +34,6 @@ function EditPersonForm() {
       .catch((err) => console.log("Greska pri ucitavanju URL-a", err));
   };
 
-  useEffect(() => {
-    if (parseInt(id) >= 0) {
-      fetchUserData(id);
-    }
-  }, [id]);
 
   const handleChange = (e) => {
     const value = e.target.value;

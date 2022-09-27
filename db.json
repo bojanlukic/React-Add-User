@@ -1,16 +1,6 @@
 {
   "PERSON": [
     {
-      "firstName": "Bojan",
-      "lastName": "Lukic",
-      "userType": "Internship",
-      "city": "Alibunar",
-      "adress": "Brigadirska 8",
-      "createdDate": "Tuesday, 13 September 2022",
-      "id": 1,
-      "ModifiedDate": "Monday, 26 September 2022"
-    },
-    {
       "firstName": "Ivana",
       "lastName": "Lukic",
       "userType": "Unemployed",
@@ -40,21 +30,22 @@
       "id": 4
     },
     {
-      "firstName": "Ivan",
+      "firstName": "bojan",
       "lastName": "Tomic",
       "userType": "Unemployed",
       "city": "Vrsac",
       "adress": "Zarka Zrenjanina 87",
       "createdDate": "Friday, 16 September 2022",
-      "id": 5
+      "id": 5,
+      "ModifiedDate": "Tuesday, 27 September 2022"
     },
     {
-      "firstName": "Milan",
-      "lastName": "Nastanovic",
+      "firstName": "bojan",
+      "lastName": "lukic",
       "userType": "Unemployed",
-      "city": "Pancevo",
-      "adress": "Krusedolska 3",
-      "createdDate": "Friday, 16 September 2022",
+      "city": "beograd",
+      "adress": "asdsa",
+      "createdDate": "Tuesday, 27 September 2022",
       "id": 6
     }
   ]
