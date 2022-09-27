@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../components/AddPersonForm.css";
 
 function AddPersonForm() {
-  const navigate = useNavigate();
 
+  const navigate = useNavigate();
   const [state, setState] = useState({
     firstName: "",
     lastName: "",
@@ -14,12 +14,10 @@ function AddPersonForm() {
   });
 
   const handleChange = (e) => {
-    const target = e.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+    const value = e.target.value;
     setState({
       ...state,
-      [name]: value,
+      [e.target.name]: value,
     });
   };
 
@@ -46,12 +44,12 @@ function AddPersonForm() {
         createdDate: dateFormated,
       }),
     })
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
         console.log("Uspesno dodata osoba");
         navigate("/");
       })
-      .catch((err) => console.log("Greska"));
+      .catch((err) => console.log("Greska",err));
   };
 
   return (

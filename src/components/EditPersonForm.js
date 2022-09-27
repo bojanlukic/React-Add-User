@@ -1,87 +1,80 @@
-import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import '../components/EditPersonForm.css'
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import "../components/EditPersonForm.css";
 
 function EditPersonForm() {
+  let { id } = useParams();
   const navigate = useNavigate();
-  let { id } = useParams();      
-
- 
-
   const [state, setState] = useState({
     firstName: "",
     lastName: "",
     userType: "Unemployed",
     city: "",
-    adress: ""
+    adress: "",
   });
 
   const fetchUserData = (id) => {
-    fetch('http://localhost:3000/PERSON/' + id) 
-      .then(response => response.json())
-      .then(data => {
+    fetch(`http://localhost:3000/PERSON/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
         if (data && parseInt(data.id) >= 0 && data.firstName) {
           setState({
             ...state,
-            ...data      
+            ...data,
           });
         }
       })
-      .catch(err => console.log('Greska pri ucitavanju URL-a'))
+      .catch((err) => console.log("Greska pri ucitavanju URL-a", err));
   };
 
   useEffect(() => {
-    if (parseInt(id) >= 0) {      
+    if (parseInt(id) >= 0) {
       fetchUserData(id);
     }
-  }, [id]);  
-
+  }, [id]);
 
   const handleChange = (e) => {
-    const target = e.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;    
-    const name = target.name;                    
-    setState({                          
+    const value = e.target.value;
+    setState({
       ...state,
-      [name]: value                     
+      [e.target.name]: value,
     });
   };
 
-
   const submit = (e) => {
     e.preventDefault();
-    console.log('Submitujemo podatke za izmenu korisnika:', state);
+    console.log("Submitujemo podatke za izmenu korisnika:", state);
 
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     const date = new Date(Date.now());
-    const dateFormated = date.toLocaleString("en-GB",options);
+    const dateFormated = date.toLocaleString("en-GB", options);
 
-
-    fetch('http://localhost:3000/PERSON/' + id, {
-      method: 'PUT',
+    fetch(`http://localhost:3000/PERSON/${id}`, {
+      method: "PUT",
       headers: {
-        'Content-Type' : 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         ...state,
-        ModifiedDate: dateFormated
-      })
+        ModifiedDate: dateFormated,
+      }),
     })
-    .then(response => {
-      console.log('Uspesno izmenjena osoba',id);
-        navigate('/')
+      .then((res) => {
+        console.log("Uspesno izmenjena osoba", id);
+        navigate("/");
       })
-      .catch(err => console.log('Greska,pogresna URL adresu!'))
-    
-      
+      .catch((err) => console.log("Greska,pogresna URL adresa!", err.message));
   };
-
 
   return (
     <div>
       <h1>Edit user (ID {id})</h1>
       <form onSubmit={submit}>
-
         <div className="field">
           <label>First Name</label>
           <input
@@ -131,12 +124,20 @@ function EditPersonForm() {
           />
         </div>
 
-        <button className='btnSave' type="submit">Save changes</button>
-        <button className="btnCancel"onClick={() => { navigate('/') }}>Cancel</button>
-
+        <button className="btnSave" type="submit">
+          Save changes
+        </button>
+        <button
+          className="btnCancel"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Cancel
+        </button>
       </form>
     </div>
-  )
+  );
 }
 
 export default EditPersonForm;

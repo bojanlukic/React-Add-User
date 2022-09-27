@@ -8,30 +8,33 @@ import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 function Persons() {
   const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
+  const [name, setName] = useState("");
+  const [userType, setUserType] = useState("");
+  const [search, setSearch] = useState("");
+  
+  useEffect(() => {
+    refresh();
+  }, []);
+
 
   const refresh = () => {
     fetch("http://localhost:3000/PERSON")
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          setEmployees(data);
+          setEmployees(data)
         }
       })
       .catch((err) => console.log("Greska pri ucitavanju URL-a", err));
   };
 
-  useEffect(() => {
-    refresh();
-  }, []);
 
-  const [name, setName] = useState("");
-  const [userType, setUserType] = useState("");
 
   const filteredPersons = employees.filter((item) => {
     let test = true;
 
     if (name !== "") {
-      if (item.firstName.toLowerCase().includes(name.toLowerCase()) === false) {
+      if (item.firstName.toLowerCase().startsWith(name.toLowerCase()) === false) {
         test = false;
       }
     }
@@ -46,7 +49,7 @@ function Persons() {
 
   const deletePerson = (id) => {
     console.log("brisemo osobu", id);
-    fetch("http://localhost:3000/PERSON/" + id, {
+    fetch(`http://localhost:3000/PERSON/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -54,16 +57,24 @@ function Persons() {
         console.log("Uspesno obrisana osoba", id);
         refresh();
       })
-      .catch((err) => console.log("Nije ispravan URL!"));
+      .catch((err) => console.log("Nije ispravan URL!", err));
   };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    setSearch(filteredPersons)
+
+  }
+
 
   return (
     <div>
       <div className="input">
-        <form>
+        <form onSubmit={submitHandler}>
           <label>Name</label>&nbsp;
           <input
             type="text"
+          
             name="name"
             placeholder="Type..."
             onChange={(e) => setName(e.target.value)}
@@ -77,6 +88,7 @@ function Persons() {
             <option value="Unemployed">Unemployed</option>
           </select>
           &nbsp; &nbsp;
+          <button type= "submit" >search</button>
         </form>
       </div>
 
@@ -136,7 +148,7 @@ function Persons() {
 
       {filteredPersons.length > 0 ? null : (
         <div className="info">
-          Ne postoje rezultati za zadate kriterijume pretrage
+          There are no results
         </div>
       )}
 

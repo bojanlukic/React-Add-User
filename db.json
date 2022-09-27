@@ -8,17 +8,17 @@
       "adress": "Brigadirska 8",
       "createdDate": "Tuesday, 13 September 2022",
       "id": 1,
-      "ModifiedDate": "Thursday, 15 September 2022"
+      "ModifiedDate": "Monday, 26 September 2022"
     },
     {
       "firstName": "Ivana",
-      "lastName": "Drndarski",
+      "lastName": "Lukic",
       "userType": "Unemployed",
       "city": "Beograd",
       "adress": "Ratka Mitrovica 12",
       "createdDate": "Thursday, 15 September 2022",
       "id": 2,
-      "ModifiedDate": "Friday, 16 September 2022"
+      "ModifiedDate": "Tuesday, 27 September 2022"
     },
     {
       "firstName": "Branka",
