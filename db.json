@@ -30,23 +30,31 @@
       "id": 4
     },
     {
-      "firstName": "bojan",
-      "lastName": "Tomic",
+      "firstName": "Bojan",
+      "lastName": "Lukic",
       "userType": "Unemployed",
-      "city": "Vrsac",
-      "adress": "Zarka Zrenjanina 87",
-      "createdDate": "Friday, 16 September 2022",
-      "id": 5,
-      "ModifiedDate": "Tuesday, 27 September 2022"
+      "city": "Beograd",
+      "adress": "Vuka Karadzica 65",
+      "createdDate": "Thursday, 29 September 2022",
+      "id": 5
     },
     {
-      "firstName": "bojan",
-      "lastName": "lukic",
+      "firstName": "Bojan",
+      "lastName": "Kovacevic",
       "userType": "Unemployed",
-      "city": "beograd",
-      "adress": "asdsa",
-      "createdDate": "Tuesday, 27 September 2022",
+      "city": "Beograd",
+      "adress": "Radnicka 3",
+      "createdDate": "Thursday, 29 September 2022",
       "id": 6
+    },
+    {
+      "firstName": "Nikola",
+      "lastName": "Pavlovic",
+      "userType": "Internship",
+      "city": "Vrsac",
+      "adress": "Banatska 33",
+      "createdDate": "Thursday, 29 September 2022",
+      "id": 7
     }
   ]
 }

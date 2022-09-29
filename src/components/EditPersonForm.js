@@ -43,7 +43,7 @@ function EditPersonForm() {
     });
   };
 
-  const submit = (e) => {
+  const handlerOnClick = (e) => {
     e.preventDefault();
     console.log("Submitujemo podatke za izmenu korisnika:", state);
 
@@ -53,7 +53,7 @@ function EditPersonForm() {
       month: "long",
       day: "numeric",
     };
-    const date = new Date(Date.now());
+    const date = new Date();
     const dateFormated = date.toLocaleString("en-GB", options);
 
     fetch(`http://localhost:3000/PERSON/${id}`, {
@@ -67,7 +67,7 @@ function EditPersonForm() {
       }),
     })
       .then((res) => {
-        console.log("Uspesno izmenjena osoba", id);
+        console.log(`Uspesno izmenjena osoba ${id}`);
         navigate("/");
       })
       .catch((err) => console.log("Greska,pogresna URL adresa!", err.message));
@@ -76,7 +76,6 @@ function EditPersonForm() {
   return (
     <div>
       <h1>Edit user (ID {id})</h1>
-      <form onSubmit={submit}>
         <div className="field">
           <label>First Name</label>
           <input
@@ -126,7 +125,7 @@ function EditPersonForm() {
           />
         </div>
 
-        <button className="btnSave" type="submit">
+        <button className="btnSave" onClick={handlerOnClick}>
           Save changes
         </button>
         <button
@@ -137,7 +136,6 @@ function EditPersonForm() {
         >
           Cancel
         </button>
-      </form>
     </div>
   );
 }

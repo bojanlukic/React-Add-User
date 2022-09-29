@@ -9,43 +9,31 @@ function Persons() {
   const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
   const [name, setName] = useState("");
-  const [userType, setUserType] = useState("");
- 
-  
+  const [position, setPosition] = useState("");
+
   useEffect(() => {
     refresh();
   }, []);
-
 
   const refresh = () => {
     fetch("http://localhost:3000/PERSON")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          setEmployees(data)
+          setEmployees(data);
         }
       })
       .catch((err) => console.log("Greska pri ucitavanju URL-a", err));
   };
 
-
-
-  const filteredPersons = employees.filter((item) => {
-    let test = true;
-
-    if (name !== "") {
-      if (item.firstName.toLowerCase().startsWith(name.toLowerCase()) === false) {
-        test = false;
-      }
-    }
-    if (userType !== "") {
-      if (item.userType !== userType) {
-        test = false;
-      }
-    }
-
-    return test;
-  });
+  const handlerOnClick = () => {
+    const filteredPersons = employees.filter(
+      (item) =>
+        item.firstName.toLowerCase().startsWith(name) &&
+        item.userType.includes(position)
+    );
+    setEmployees(filteredPersons);
+  };
 
   const deletePerson = (id) => {
     console.log("brisemo osobu", id);
@@ -60,30 +48,33 @@ function Persons() {
       .catch((err) => console.log("Nije ispravan URL!", err));
   };
 
- 
-
-
   return (
     <div>
       <div className="input">
-        <form>
-          <label>Name</label>&nbsp;
-          <input
-            type="text"
-            name="name"
-            placeholder="Type..."
-            onChange={(e) => setName(e.target.value)}
-          />
-          &nbsp; &nbsp;
-          <label>UserType</label>&nbsp;
-          <select name="usertype" onChange={(e) => setUserType(e.target.value)}>
-            <option value="">--Choose Usertype--</option>
-            <option value="Internship">Internship</option>
-            <option value="Employed">Employed</option>
-            <option value="Unemployed">Unemployed</option>
-          </select>
-          &nbsp; &nbsp;
-        </form>
+        <label>Name</label>&nbsp;
+        <input
+          type="text"
+          name="name"
+          placeholder="Type..."
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+        &nbsp; &nbsp;
+        <label>UserType</label>&nbsp;
+        <select
+          name="usertype"
+          onChange={(e) => {
+            setPosition(e.target.value);
+          }}
+        >
+          <option value="">--Choose Usertype--</option>
+          <option value="Internship">Internship</option>
+          <option value="Employed">Employed</option>
+          <option value="Unemployed">Unemployed</option>
+        </select>
+        &nbsp; &nbsp;
+        <button onClick={handlerOnClick}>Search</button>
       </div>
 
       <table className="table">
@@ -102,7 +93,7 @@ function Persons() {
           </tr>
         </thead>
         <tbody>
-          {filteredPersons.map((employee) => {
+          {employees.map((employee) => {
             return (
               <tr key={employee.id}>
                 <td>{employee.id}</td>
@@ -116,7 +107,7 @@ function Persons() {
                   <button
                     className="btnEdit"
                     onClick={() => {
-                      navigate("/edit/" + employee.id);
+                      navigate(`/edit/${employee.id}`);
                     }}
                   >
                     <div className="edit">Edit</div>
@@ -140,10 +131,8 @@ function Persons() {
         </tbody>
       </table>
 
-      {filteredPersons.length > 0 ? null : (
-        <div className="info">
-          There are no results
-        </div>
+      {employees.length > 0 ? null : (
+        <div className="info">There are no results</div>
       )}
 
       <button
