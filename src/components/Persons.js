@@ -4,6 +4,8 @@ import "./Persons.css";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
+import SearchIcon from '@mui/icons-material/Search';
+
 
 function Persons() {
   const navigate = useNavigate();
@@ -27,12 +29,10 @@ function Persons() {
   };
 
   const handlerOnClick = () => {
-    const filteredPersons = employees.filter(
-      (item) =>
-        item.firstName.toLowerCase().startsWith(name) &&
-        item.userType.includes(position)
-    );
+    const filteredPersons = employees.filter((item) => item.firstName.toLowerCase().startsWith(name.toLowerCase()) && item.userType.includes(position));
     setEmployees(filteredPersons);
+    setName("");
+    setPosition("");
   };
 
   const deletePerson = (id) => {
@@ -56,6 +56,7 @@ function Persons() {
           type="text"
           name="name"
           placeholder="Type..."
+          value={name}
           onChange={(e) => {
             setName(e.target.value);
           }}
@@ -64,6 +65,7 @@ function Persons() {
         <label>UserType</label>&nbsp;
         <select
           name="usertype"
+          value={position}
           onChange={(e) => {
             setPosition(e.target.value);
           }}
@@ -74,7 +76,7 @@ function Persons() {
           <option value="Unemployed">Unemployed</option>
         </select>
         &nbsp; &nbsp;
-        <button onClick={handlerOnClick}>Search</button>
+        <button className="btnSearch" onClick={handlerOnClick}><span>Search <SearchIcon/></span></button>
       </div>
 
       <table className="table">
@@ -116,11 +118,7 @@ function Persons() {
                 </td>
                 <td>
                   <button
-                    className="btnDelete"
-                    onClick={(e) => {
-                      deletePerson(employee.id);
-                    }}
-                  >
+                    className="btnDelete" onClick={(e) => { deletePerson(employee.id) }} >
                     <div className="edit">Delete</div>
                     <DeleteOutlineOutlinedIcon />
                   </button>
@@ -141,7 +139,7 @@ function Persons() {
           navigate("/add");
         }}
       >
-        New User <PersonAddAltOutlinedIcon />{" "}
+        New User <PersonAddAltOutlinedIcon />
       </button>
     </div>
   );

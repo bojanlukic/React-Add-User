@@ -21,8 +21,7 @@ function AddPersonForm() {
     });
   };
 
-  const submit = (e) => {
-    e.preventDefault();
+  const handlerOnClick = (e) => {
     console.log("Submitujemo podatke za novog korisnika:", state);
 
     const options = {
@@ -31,7 +30,7 @@ function AddPersonForm() {
       month: "long",
       day: "numeric",
     };
-    const date = new Date(Date.now());
+    const date = new Date();
     const dateFormated = date.toLocaleString("en-GB", options);
 
     fetch("http://localhost:3000/PERSON/", {
@@ -55,7 +54,6 @@ function AddPersonForm() {
   return (
     <div className="app">
       <h1>Add new user</h1>
-      <form onSubmit={submit}>
         <div className="field">
           <label>First Name</label>
           <input
@@ -111,7 +109,7 @@ function AddPersonForm() {
           />
         </div>
         <div className="twoButtons">
-          <button className="btnAdd" type="submit">
+          <button className="btnAdd" onClick={handlerOnClick}>
             Add user
           </button>
           <button
@@ -123,7 +121,6 @@ function AddPersonForm() {
             Cancel
           </button>
         </div>
-      </form>
     </div>
   );
 }

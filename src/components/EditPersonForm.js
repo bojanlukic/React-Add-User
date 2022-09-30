@@ -3,12 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import "../components/EditPersonForm.css";
 
 function EditPersonForm() {
+
   let { id } = useParams();
   const navigate = useNavigate();
   const [state, setState] = useState({
     firstName: "",
     lastName: "",
-    userType: "Unemployed",
+    userType: "",
     city: "",
     adress: "",
   });
@@ -37,42 +38,43 @@ function EditPersonForm() {
 
   const handleChange = (e) => {
     const value = e.target.value;
-    setState({
-      ...state,
-      [e.target.name]: value,
-    });
+      setState({
+        ...state,
+        [e.target.name]: value,
+      });
+    
   };
 
   const handlerOnClick = (e) => {
-    e.preventDefault();
+
     console.log("Submitujemo podatke za izmenu korisnika:", state);
 
-    const options = {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    };
-    const date = new Date();
-    const dateFormated = date.toLocaleString("en-GB", options);
+      const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      const date = new Date();
+      const dateFormated = date.toLocaleString("en-GB", options);
 
-    fetch(`http://localhost:3000/PERSON/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...state,
-        ModifiedDate: dateFormated,
-      }),
-    })
-      .then((res) => {
-        console.log(`Uspesno izmenjena osoba ${id}`);
-        navigate("/");
+      fetch(`http://localhost:3000/PERSON/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...state,
+          ModifiedDate: dateFormated,
+        }),
       })
-      .catch((err) => console.log("Greska,pogresna URL adresa!", err.message));
-  };
-
+        .then((res) => {
+          console.log(`Uspesno izmenjena osoba ${id}`);
+          navigate("/");
+        })
+        .catch((err) => console.log("Greska,pogresna URL adresa!", err.message));
+    };
+  
   return (
     <div>
       <h1>Edit user (ID {id})</h1>
