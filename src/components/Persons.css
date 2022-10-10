@@ -36,6 +36,10 @@ tr:hover {
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+
+
 }
 .btnCreate:hover {
   background-color: rgb(68, 179, 151);
@@ -48,7 +52,9 @@ tr:hover {
   border-radius: 6px;
   border: none;
   background-color: rgb(231, 227, 227);
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: bold;
+
 }
 .btnEdit:hover {
   background-color: rgb(4, 226, 52);
@@ -59,11 +65,13 @@ tr:hover {
   display: flex;
   align-items: center;
   height: 29px;
-  width: 85px;
+  width: 81px;
   border-radius: 6px;
   border: none;
   background-color: rgb(231, 227, 227);
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: bold;
+
 }
 .btnDelete:hover {
   background-color: rgb(252, 17, 17);
@@ -84,6 +92,8 @@ tr:hover {
   border-radius: 25px;
   border: none;
   transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 14px;
 }
 .btnSearch:hover {
   background-color: rgb(68, 179, 151);
@@ -97,8 +107,15 @@ span {
   padding: 2px;
   width: 160px;
   height: 19px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0) ;
 }
 .inputForName:focus {
   width: 200px;
   transition: all 0.5s ease;
+}
+.inputForType {
+border-radius: 5px;
+border: 2px solid rgb(0, 0, 0) ;
+
 }

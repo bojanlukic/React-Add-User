@@ -67,6 +67,7 @@ function Persons() {
         &nbsp; &nbsp;
         <label>UserType</label>&nbsp;
         <select 
+          className="inputForType"
           style={{fontSize: "14px", padding: "3px" }}
           name="usertype"
           value={position}
