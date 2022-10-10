@@ -29,6 +29,9 @@ function Persons() {
   };
 
   const handlerOnClick = () => {
+    if (!name && !position) {
+      alert("Both fields must be filled!")
+    }
     const filteredPersons = employees.filter((item) => item.firstName.toLowerCase().startsWith(name.toLowerCase()) && item.userType.includes(position));
     setEmployees(filteredPersons);
     setName("");
@@ -49,10 +52,10 @@ function Persons() {
   };
 
   return (
-    <div>
-      <div className="input">
+    <div className="persons">
+      <div>
         <label>Name</label>&nbsp;
-        <input
+        <input className="inputForName"
           type="text"
           name="name"
           placeholder="Type..."
@@ -63,7 +66,8 @@ function Persons() {
         />
         &nbsp; &nbsp;
         <label>UserType</label>&nbsp;
-        <select
+        <select 
+          style={{fontSize: "14px", padding: "3px" }}
           name="usertype"
           value={position}
           onChange={(e) => {
@@ -76,10 +80,10 @@ function Persons() {
           <option value="Unemployed">Unemployed</option>
         </select>
         &nbsp; &nbsp;
-        <button className="btnSearch" onClick={handlerOnClick}><span>Search <SearchIcon/></span></button>
+        <button type="submit" className="btnSearch" onClick={handlerOnClick}><span>Search <SearchIcon/></span></button>
       </div>
 
-      <table className="table">
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -109,18 +113,12 @@ function Persons() {
                   <button
                     className="btnEdit"
                     onClick={() => {
-                      navigate(`/edit/${employee.id}`);
-                    }}
-                  >
-                    <div className="edit">Edit</div>
-                    <EditOutlinedIcon />
+                      navigate(`/edit/${employee.id}`) }}> Edit <EditOutlinedIcon />
                   </button>
                 </td>
                 <td>
                   <button
-                    className="btnDelete" onClick={(e) => { deletePerson(employee.id) }} >
-                    <div className="edit">Delete</div>
-                    <DeleteOutlineOutlinedIcon />
+                    className="btnDelete" onClick={(e) => { deletePerson(employee.id) }} > Delete <DeleteOutlineOutlinedIcon />
                   </button>
                 </td>
               </tr>

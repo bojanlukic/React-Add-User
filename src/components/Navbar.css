@@ -1,0 +1,37 @@
+.list {
+    background-color: rgb(68, 179, 151);
+    box-shadow: 1px 3px 7px rgb(192, 192, 192);
+    width: 200px;
+    height: 100vh;
+  }
+  ul {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    list-style-type: none;
+  }
+  li {
+    display: block;
+  }
+  li div {
+    display: block;
+    padding: 20px;
+  }
+  li div:hover {
+    background-color: rgb(0, 0, 0);
+  }
+  li a,
+  li a:link,
+  li a:visited {
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+  }
+  
+  li a.active div {
+    background-color: rgb(0, 0, 0);
+  }
+  .alignIcon {
+    display: flex;
+    align-items: center;
+  }

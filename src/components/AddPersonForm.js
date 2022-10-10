@@ -52,11 +52,13 @@ function AddPersonForm() {
   };
 
   return (
-    <div className="app">
+    <div>
+      <div className="addForm"> 
       <h1>Add new user</h1>
-        <div className="field">
+        <div>
           <label>First Name</label>
-          <input
+        <input
+            className="inputs"
             type="text"
             name="firstName"
             value={state.firstName}
@@ -64,9 +66,10 @@ function AddPersonForm() {
             required
           />
         </div>
-        <div className="field">
+        <div>
           <label>Last Name</label>
-          <input
+        <input
+            className="inputs"
             type="text"
             name="lastName"
             value={state.lastName}
@@ -74,9 +77,10 @@ function AddPersonForm() {
             required
           />
         </div>
-        <div className="field">
+        <div>
           <label>Usertype</label>
-          <select
+        <select
+           className="inputs"
             name="userType"
             value={state.userType}
             onChange={handleChange}
@@ -88,9 +92,10 @@ function AddPersonForm() {
             <option value="Unemployed">Unemployed</option>
           </select>
         </div>
-        <div className="field">
+        <div>
           <label>City</label>
-          <input
+        <input
+            className="inputs"
             type="text"
             name="city"
             value={state.city}
@@ -98,9 +103,10 @@ function AddPersonForm() {
             required
           />
         </div>
-        <div className="field">
+        <div>
           <label>Adress</label>
-          <input
+        <input
+            className="inputs"
             type="text"
             name="adress"
             value={state.adress}
@@ -108,7 +114,6 @@ function AddPersonForm() {
             required
           />
         </div>
-        <div className="twoButtons">
           <button className="btnAdd" onClick={handlerOnClick}>
             Add user
           </button>
@@ -117,11 +122,12 @@ function AddPersonForm() {
             onClick={() => {
               navigate("/");
             }}
-          >
+            >
             Cancel
           </button>
-        </div>
-    </div>
+            </div>
+            </div>
+   
   );
 }
 

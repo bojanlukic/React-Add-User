@@ -50,22 +50,13 @@
     },
     {
       "firstName": "Nikola",
-      "lastName": "Pavlovicccc",
+      "lastName": "Pavlovic",
       "userType": "Internship",
       "city": "Vrsac",
       "adress": "Banatska 33",
       "createdDate": "Thursday, 29 September 2022",
       "id": 7,
-      "ModifiedDate": "Friday, 30 September 2022"
-    },
-    {
-      "firstName": "Bojan",
-      "lastName": "Lukic",
-      "userType": "Internship",
-      "city": "Beograd",
-      "adress": "Zarka Zrenjanina 12",
-      "createdDate": "Friday, 30 September 2022",
-      "id": 8
+      "ModifiedDate": "Wednesday, 5 October 2022"
     }
   ]
 }

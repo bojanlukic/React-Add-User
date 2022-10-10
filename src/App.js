@@ -1,15 +1,10 @@
 import "./../src/App.css";
 import Persons from "./components/Persons";
 import About from "./components/About";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  NavLink,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddPersonForm from "./components/AddPersonForm";
 import EditPersonForm from "./components/EditPersonForm";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -17,30 +12,8 @@ function App() {
       <div className="app">
         <header>Add User</header>
         <div className="page-body">
+          <Navbar />
           <div>
-            <div className="list">
-              <ul>
-                <li>
-                  <NavLink activeclassname="active" to="/">
-                    <div className="alignIcon">
-                      Home <HomeOutlinedIcon />
-                    </div>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink activeclassname="active" to="/add">
-                    <div>New User </div>
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink activeclassname="active" to="/about">
-                    <div>About</div>
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="main">
             <Routes>
               <Route exact path="/" element={<Persons />} />
               <Route exact path="/add" element={<AddPersonForm />} />
