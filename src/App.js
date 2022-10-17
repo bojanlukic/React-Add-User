@@ -15,10 +15,10 @@ function App() {
           <Navbar />
           <div>
             <Routes>
-              <Route exact path="/" element={<Persons />} />
-              <Route exact path="/add" element={<AddPersonForm />} />
-              <Route exact path="/about" element={<About />} />
-              <Route exact path="/edit/:id" element={<EditPersonForm />} />
+              <Route  path="/" element={<Persons />} />
+              <Route  path="/add" element={<AddPersonForm />} />
+              <Route  path="/about" element={<About />} />
+              <Route  path="/edit/:id" element={<EditPersonForm />} />
             </Routes>
           </div>
         </div>

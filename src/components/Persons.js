@@ -5,6 +5,7 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
 import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
 
 
 function Persons() {
@@ -29,14 +30,17 @@ function Persons() {
   };
 
   const handlerOnClick = () => {
-    if (!name && !position) {
-      alert("Both fields must be filled!")
-    }
     const filteredPersons = employees.filter((item) => item.firstName.toLowerCase().startsWith(name.toLowerCase()) && item.userType.includes(position));
     setEmployees(filteredPersons);
-    setName("");
-    setPosition("");
+    if (!name && !position) {
+      refresh();
+    }
   };
+
+  const clearOnClick = () => {
+     setName("");
+    setPosition("");
+  }
 
   const deletePerson = (id) => {
     console.log("brisemo osobu", id);
@@ -50,6 +54,8 @@ function Persons() {
       })
       .catch((err) => console.log("Nije ispravan URL!", err));
   };
+
+
 
   return (
     <div className="persons">
@@ -81,7 +87,8 @@ function Persons() {
           <option value="Unemployed">Unemployed</option>
         </select>
         &nbsp; &nbsp;
-        <button type="submit" className="btnSearch" onClick={handlerOnClick}><span>Search <SearchIcon/></span></button>
+        <button  className="btnSearch" onClick={handlerOnClick}><span>Search <SearchIcon /></span></button>
+        <button className="btnSearch" onClick={clearOnClick}><span>Clear <ClearIcon/></span> </button>
       </div>
 
       <table>
@@ -128,9 +135,9 @@ function Persons() {
         </tbody>
       </table>
 
-      {employees.length > 0 ? null : (
+       {employees.length > 0 ? null : (
         <div className="info">There are no results</div>
-      )}
+      )} 
 
       <button
         className="btnCreate"
