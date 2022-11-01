@@ -4,14 +4,12 @@ Add User je aplikacija koja sluzi za citanje, dodavanje, editovanje i brisanje k
 
 #### Kako je pokrenuti?
 
-1.  Izaberite zeljeni folder gde cete da smestite aplikaciju. Moj je `/Bojan/JS/project`.  Da bi ste pokrenuli server morate u terminalu ukucati `cd project` a zatim `json-server --watch db.json`.
+1.  Izaberite zeljeni folder gde cete da smestite aplikaciju. Na primer, ako se vas folder nalazi na ruti `/Users/JS/project`, da bi ste pokrenuli server morate u terminalu ukucati `cd project` a zatim `json-server --watch db.json`.
 
 2. Na Github strani kopirajte URL kod.
 
-3. Otvorite terminal i ukucajte git clone a onda nalepite URL kod.
+3. Otvorite terminal i ukucajte `git clone` a onda nalepite URL kod.
 
-4. Pritisnite `enter` i sacekajte da se instalira.
+4. Ako nemate Node module, morate ih instalirati. Ukucajte u terminalu `npm install` .
 
-5. Ako nemate Node module, bice potrebno da ih instalirate. To mozete uraditi kucanjem u terminalu `npm install`.
-
-6. I na kraju da bi ste pokrenuli aplikaciju, potrebno je da ukucate `npm start`.
+5. I na kraju da bi ste pokrenuli aplikaciju, potrebno je da otvorite novi terminal i ukucate `npm start`.
