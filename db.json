@@ -59,13 +59,14 @@
       "ModifiedDate": "Wednesday, 5 October 2022"
     },
     {
-      "firstName": "sdf",
-      "lastName": "dsfsdf",
-      "userType": "Internship",
-      "city": "fsd",
-      "adress": "sdfsd",
+      "firstName": "Nikola",
+      "lastName": "Nikolic",
+      "userType": "Unemployed",
+      "city": "Beograd",
+      "adress": "Kralja Milana 33",
       "createdDate": "Wednesday, 12 October 2022",
-      "id": 8
+      "id": 8,
+      "ModifiedDate": "Tuesday, 1 November 2022"
     }
   ]
 }

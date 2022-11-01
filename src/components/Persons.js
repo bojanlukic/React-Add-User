@@ -64,7 +64,7 @@ function Persons() {
         <input className="inputForName"
           type="text"
           name="name"
-          placeholder="Type..."
+          placeholder="Search..."
           value={name}
           onChange={(e) => {
             setName(e.target.value);
