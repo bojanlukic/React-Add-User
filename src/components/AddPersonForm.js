@@ -22,7 +22,7 @@ function AddPersonForm() {
   };
 
   const handlerOnClick = (e) => {
-    console.log("Submitujemo podatke za novog korisnika:", state);
+    console.log("Submitujem podatke za novog korisnika:", state);
 
     const options = {
       weekday: "long",
