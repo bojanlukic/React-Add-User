@@ -1,10 +1,10 @@
 import "./../src/App.css";
-import Persons from "./components/Persons";
 import About from "./components/About";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AddPersonForm from "./components/AddPersonForm";
 import EditPersonForm from "./components/EditPersonForm";
 import Navbar from "./components/Navbar";
+import Persons from "./components/Persons";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Navbar />
           <div>
             <Routes>
-              <Route  path="/" element={<Persons />} />
+              <Route  path="/" element={<Persons/>} />
               <Route  path="/add" element={<AddPersonForm />} />
               <Route  path="/about" element={<About />} />
               <Route  path="/edit/:id" element={<EditPersonForm />} />

@@ -4,16 +4,15 @@ import "./Persons.css";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import PersonAddAltOutlinedIcon from "@mui/icons-material/PersonAddAltOutlined";
-import SearchIcon from "@mui/icons-material/Search";
-import ClearIcon from "@mui/icons-material/Clear";
+import SearchIcon from '@mui/icons-material/Search';
+import ClearIcon from '@mui/icons-material/Clear';
+
 
 function Persons() {
   const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
 
   useEffect(() => {
     refresh();
@@ -31,11 +30,7 @@ function Persons() {
   };
 
   const handlerOnClick = () => {
-    const filteredPersons = employees.filter(
-      (item) =>
-        item.firstName.toLowerCase().startsWith(name.toLowerCase()) &&
-        item.userType.includes(position)
-    );
+    const filteredPersons = employees.filter((item) => item.firstName.toLowerCase().startsWith(name.toLowerCase()) && item.userType.includes(position));
     setEmployees(filteredPersons);
     if (!name && !position) {
       refresh();
@@ -43,9 +38,9 @@ function Persons() {
   };
 
   const clearOnClick = () => {
-    setName("");
+     setName("");
     setPosition("");
-  };
+  }
 
   const deletePerson = (id) => {
     console.log("brisemo osobu", id);
@@ -60,20 +55,13 @@ function Persons() {
       .catch((err) => console.log("Nije ispravan URL!", err));
   };
 
-  const indexOfLastPost = currentPage * postsPerPage; //10 = 1 * 10
-  const indexOfFirstPost = indexOfLastPost - postsPerPage; // 0 = 10 - 10
-  const currentPost = employees.slice(indexOfFirstPost, indexOfLastPost);
 
-  const pageNumbers = [];
-  for (let i = 1; i <= employees.length / postsPerPage; i++)
-    pageNumbers.push(i);
 
   return (
     <div className="persons">
-      <div className="alignSearchBar">
+      <div>
         <label>Name</label>&nbsp;
-        <input
-          className="inputForName"
+        <input className="inputForName"
           type="text"
           name="name"
           placeholder="Search..."
@@ -84,9 +72,9 @@ function Persons() {
         />
         &nbsp; &nbsp;
         <label>UserType</label>&nbsp;
-        <select
+        <select 
           className="inputForType"
-          style={{ fontSize: "14px", padding: "3px" }}
+          style={{fontSize: "14px", padding: "3px" }}
           name="usertype"
           value={position}
           onChange={(e) => {
@@ -99,24 +87,8 @@ function Persons() {
           <option value="Unemployed">Unemployed</option>
         </select>
         &nbsp; &nbsp;
-        <button className="btnSearch" onClick={handlerOnClick}>
-          <span>
-            Search <SearchIcon />
-          </span>
-        </button>
-        <button className="btnSearch" onClick={clearOnClick}>
-          <span>
-            Clear <ClearIcon />
-          </span>{" "}
-        </button>
-        <button
-        className="btnCreate"
-        onClick={(e) => {
-          navigate("/add");
-        }}
-      >
-        New User <PersonAddAltOutlinedIcon />
-      </button>
+        <button  className="btnSearch" onClick={handlerOnClick}><span>Search <SearchIcon /></span></button>
+        <button className="btnSearch" onClick={clearOnClick}><span>Clear <ClearIcon/></span> </button>
       </div>
 
       <table>
@@ -135,7 +107,7 @@ function Persons() {
           </tr>
         </thead>
         <tbody>
-          {currentPost.map((employee) => {
+          {employees.map((employee) => {
             return (
               <tr key={employee.id}>
                 <td>{employee.id}</td>
@@ -149,22 +121,12 @@ function Persons() {
                   <button
                     className="btnEdit"
                     onClick={() => {
-                      navigate(`/edit/${employee.id}`);
-                    }}
-                  >
-                    {" "}
-                    Edit <EditOutlinedIcon />
+                      navigate(`/edit/${employee.id}`) }}> Edit <EditOutlinedIcon />
                   </button>
                 </td>
                 <td>
                   <button
-                    className="btnDelete"
-                    onClick={(e) => {
-                      deletePerson(employee.id);
-                    }}
-                  >
-                    {" "}
-                    Delete <DeleteOutlineOutlinedIcon />
+                    className="btnDelete" onClick={(e) => { deletePerson(employee.id) }} > Delete <DeleteOutlineOutlinedIcon />
                   </button>
                 </td>
               </tr>
@@ -173,24 +135,18 @@ function Persons() {
         </tbody>
       </table>
 
-      {employees.length > 0 ? null : (
+       {employees.length > 0 ? null : (
         <div className="info">There are no results</div>
-      )}
+      )} 
 
-      <div className="navPage">
-        {pageNumbers.map((page) => {
-          return (
-            <button
-              key={page}
-              id="btnPage"
-              className={page === currentPage ? "active" : ""}
-              onClick={() => setCurrentPage(page)} 
-            >
-              {page}
-            </button>
-          );
-        })}
-      </div>
+      <button
+        className="btnCreate"
+        onClick={(e) => {
+          navigate("/add");
+        }}
+      >
+        New User <PersonAddAltOutlinedIcon />
+      </button>
     </div>
   );
 }
