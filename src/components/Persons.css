@@ -1,5 +1,6 @@
 .persons {
-  width: 100%;
+  width: 1300px;
+  height: 1000px;
   padding: 30px;
   margin-left: 35px;
   text-align: left;
@@ -8,6 +9,7 @@ table {
   margin-top: 27px;
   border-collapse: collapse;
   box-shadow: 1px 3px 7px rgb(192, 192, 192);
+
 }
 td,
 th {
@@ -20,26 +22,17 @@ th {
   background: rgb(219, 247, 245);
   color: rgb(0, 0, 0);
   font-weight: 900;
+  font-size: 20px;
 }
 tr:hover {
   background-color: rgb(68, 179, 151);
   color: rgb(255, 255, 255);
 }
-.btnCreate {
-  background: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  padding: 8px 10px;
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+#btnCreate {
   display: flex;
   align-items: center;
-  font-weight: bold;
-  font-size: 14px;
   position: absolute;
-  right: 145px;
-
+  right: 190px;
 }
 .btnCreate:hover {
   background-color: rgb(68, 179, 151);
@@ -141,8 +134,30 @@ color: white;
   cursor: pointer;
 }
 
+.buttonsForNav{
+  border: 2px solid mediumblue;
+  border-radius: 5px;
+  padding: 0px 12px;
+  font-size: medium;
+  font-weight: 600;
+  cursor: pointer;
+  
+}
+.buttonsForNav:hover, #btnPage:hover {
+  background-color: mediumblue;
+  color: white;
+}
 .alignSearchBar{
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+
 }
+.btnBox {
+  display: flex;
+  
+}
+.inputBox {
+  display: flex;
+
+}
+

@@ -425,7 +425,7 @@
       "city": "Pancevo",
       "adress": "Bratstva i Jedinstva 43",
       "createdDate": "Thursday, 15 September 2022",
-      "id": 45,
+      "id": 44,
       "ModifiedDate": "Friday, 16 September 2022"
     },
     {
@@ -435,7 +435,7 @@
       "city": "Novi Sad",
       "adress": "Radnicka 2",
       "createdDate": "Friday, 16 September 2022",
-      "id": 46
+      "id": 45
     },
     {
       "firstName": "Bojan",
@@ -444,7 +444,7 @@
       "city": "Beograd",
       "adress": "Vuka Karadzica 65",
       "createdDate": "Thursday, 29 September 2022",
-      "id": 47,
+      "id": 46,
       "ModifiedDate": "Friday, 30 September 2022"
     },
     {
@@ -454,7 +454,7 @@
       "city": "Beograd",
       "adress": "Radnicka 3",
       "createdDate": "Thursday, 29 September 2022",
-      "id": 48
+      "id": 47
     },
     {
       "firstName": "Nikola",
@@ -463,8 +463,18 @@
       "city": "Vrsac",
       "adress": "Banatska 33",
       "createdDate": "Thursday, 29 September 2022",
-      "id": 49,
+      "id": 48,
       "ModifiedDate": "Wednesday, 5 October 2022"
+    },
+    {
+      "firstName": "Nikola",
+      "lastName": "Nikolic",
+      "userType": "Unemployed",
+      "city": "Beograd",
+      "adress": "Kralja Milana 33",
+      "createdDate": "Wednesday, 12 October 2022",
+      "id": 49,
+      "ModifiedDate": "Tuesday, 1 November 2022"
     },
     {
       "firstName": "Nikola",

@@ -14,7 +14,7 @@ function Persons() {
   const [position, setPosition] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
-
+  
   useEffect(() => {
     refresh();
   }, []);
@@ -41,7 +41,7 @@ function Persons() {
       refresh();
     }
   };
-
+  
   const clearOnClick = () => {
     setName("");
     setPosition("");
@@ -63,14 +63,17 @@ function Persons() {
   const indexOfLastPost = currentPage * postsPerPage; //10 = 1 * 10
   const indexOfFirstPost = indexOfLastPost - postsPerPage; // 0 = 10 - 10
   const currentPost = employees.slice(indexOfFirstPost, indexOfLastPost);
+  const numberOfPages = employees.length / postsPerPage;
 
   const pageNumbers = [];
-  for (let i = 1; i <= employees.length / postsPerPage; i++)
+  for (let i = 1; i <= Math.ceil(employees.length / postsPerPage); i++)
     pageNumbers.push(i);
-
+  
+  
   return (
     <div className="persons">
       <div className="alignSearchBar">
+        <div className="inputBox">
         <label>Name</label>&nbsp;
         <input
           className="inputForName"
@@ -98,25 +101,28 @@ function Persons() {
           <option value="Employed">Employed</option>
           <option value="Unemployed">Unemployed</option>
         </select>
-        &nbsp; &nbsp;
+          &nbsp; &nbsp;
+          </div>
+        <div className="btnBox">
         <button className="btnSearch" onClick={handlerOnClick}>
           <span>
             Search <SearchIcon />
           </span>
         </button>
-        <button className="btnSearch" onClick={clearOnClick}>
+        <button className="btnSearch"  onClick={clearOnClick}>
           <span>
             Clear <ClearIcon />
           </span>{" "}
         </button>
         <button
-        className="btnCreate"
+        className="btnSearch" id="btnCreate"
         onClick={(e) => {
           navigate("/add");
         }}
       >
         New User <PersonAddAltOutlinedIcon />
-      </button>
+          </button>
+          </div>
       </div>
 
       <table>
@@ -176,10 +182,14 @@ function Persons() {
       {employees.length > 0 ? null : (
         <div className="info">There are no results</div>
       )}
-
       <div className="navPage">
+        <button className="buttonsForNav"
+                onClick={() => setCurrentPage(currentPage / currentPage )}>First</button>
+        <button className="buttonsForNav"
+                onClick={() => setCurrentPage(currentPage - 1)}>Back</button>
         {pageNumbers.map((page) => {
           return (
+            <div>
             <button
               key={page}
               id="btnPage"
@@ -187,9 +197,14 @@ function Persons() {
               onClick={() => setCurrentPage(page)} 
             >
               {page}
-            </button>
+              </button>
+              </div>
           );
         })}
+        <button className="buttonsForNav"
+                onClick={numberOfPages ? () => setCurrentPage(currentPage + 1) : null}>Next</button>
+        <button className="buttonsForNav"
+                onClick={() => setCurrentPage(currentPage + (numberOfPages - currentPage))}>Last</button>
       </div>
     </div>
   );
