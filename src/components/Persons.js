@@ -56,6 +56,8 @@ function Persons() {
       .then((data) => {
         console.log("Uspesno obrisana osoba", id);
         refresh();
+        setCurrentPage(pageNumbers[0])
+
       })
       .catch((err) => console.log("Nije ispravan URL!", err));
   };
@@ -63,13 +65,28 @@ function Persons() {
   const indexOfLastPost = currentPage * postsPerPage; //10 = 1 * 10
   const indexOfFirstPost = indexOfLastPost - postsPerPage; // 0 = 10 - 10
   const currentPost = employees.slice(indexOfFirstPost, indexOfLastPost);
-  const numberOfPages = employees.length / postsPerPage;
 
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(employees.length / postsPerPage); i++)
     pageNumbers.push(i);
   
-  
+    
+    const firstButton = () => {
+      setCurrentPage(pageNumbers[0])
+    }
+    const backButton = () => {
+      currentPage >0  ?
+        setCurrentPage((currentPage) => currentPage - 1) :
+          alert('This is first page. Go forward!')
+  }
+    const nextButton = () => {
+      pageNumbers.length > currentPage ?
+        setCurrentPage((currentPage) => currentPage + 1) :
+          alert('This is last page. Go back!')
+  }
+    const lastButton = () => {
+      setCurrentPage(pageNumbers.length)
+    }
   return (
     <div className="persons">
       <div className="alignSearchBar">
@@ -183,28 +200,26 @@ function Persons() {
         <div className="info">There are no results</div>
       )}
       <div className="navPage">
-        <button className="buttonsForNav"
-                onClick={() => setCurrentPage(currentPage / currentPage )}>First</button>
-        <button className="buttonsForNav"
-                onClick={() => setCurrentPage(currentPage - 1)}>Back</button>
+        <button className="buttonsForNav" onClick={firstButton}  disabled={currentPage === 1}>First</button>
+        <button className="buttonsForNav" onClick={backButton}  disabled={currentPage === 1}>Back</button>
+        
         {pageNumbers.map((page) => {
           return (
             <div>
-            <button
-              key={page}
-              id="btnPage"
-              className={page === currentPage ? "active" : ""}
-              onClick={() => setCurrentPage(page)} 
-            >
-              {page}
+              <button
+                key={page}
+                id="btnPage"
+                className={page === currentPage ? "active" : ""}
+                onClick={() => setCurrentPage(page)} 
+                >
+                {page}
+                {console.log(currentPage)}
               </button>
-              </div>
+            </div>
           );
         })}
-        <button className="buttonsForNav"
-                onClick={numberOfPages ? () => setCurrentPage(currentPage + 1) : null}>Next</button>
-        <button className="buttonsForNav"
-                onClick={() => setCurrentPage(currentPage + (numberOfPages - currentPage))}>Last</button>
+        <button className="buttonsForNav" onClick={nextButton} disabled={currentPage === pageNumbers.length}>Next</button>
+        <button className="buttonsForNav" onClick={lastButton} disabled={currentPage === pageNumbers.length}>Last</button>
       </div>
     </div>
   );

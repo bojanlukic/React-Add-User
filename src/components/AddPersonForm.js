@@ -114,7 +114,7 @@ function AddPersonForm() {
             required
           />
         </div>
-          <button className="btnAdd" onClick={handlerOnClick}>
+          <button className="btnAdd" onClick={handlerOnClick}> 
             Add user
           </button>
           <button
