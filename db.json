@@ -8,7 +8,7 @@
       "adress": "Ratka Mitrovica 12",
       "createdDate": "Thursday, 15 September 2022",
       "id": 1,
-      "ModifiedDate": "Friday, 30 September 2022"
+      "ModifiedDate": "Monday, 7 November 2022"
     },
     {
       "firstName": "Branka",
@@ -436,16 +436,6 @@
       "adress": "Radnicka 2",
       "createdDate": "Friday, 16 September 2022",
       "id": 45
-    },
-    {
-      "firstName": "Bojan",
-      "lastName": "Lukicccc",
-      "userType": "Unemployed",
-      "city": "Beograd",
-      "adress": "Vuka Karadzica 65",
-      "createdDate": "Thursday, 29 September 2022",
-      "id": 46,
-      "ModifiedDate": "Friday, 30 September 2022"
     }
   ]
 }

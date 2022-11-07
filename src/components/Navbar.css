@@ -1,20 +1,18 @@
 .list {
     background-color: rgb(68, 179, 151);
     box-shadow: 1px 3px 7px rgb(192, 192, 192);
-    width: 200px;
     height: 1100px;
   }
   ul {
     margin: 0px;
     padding: 0px;
-    width: 100%;
     list-style-type: none;
+    width: 200px;
   }
   li {
     display: block;
   }
   li div {
-    display: block;
     padding: 20px;
   }
   li div:hover {

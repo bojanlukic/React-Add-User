@@ -14,7 +14,7 @@ function Persons() {
   const [position, setPosition] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(10);
-  
+
   useEffect(() => {
     refresh();
   }, []);
@@ -41,7 +41,7 @@ function Persons() {
       refresh();
     }
   };
-  
+
   const clearOnClick = () => {
     setName("");
     setPosition("");
@@ -56,8 +56,6 @@ function Persons() {
       .then((data) => {
         console.log("Uspesno obrisana osoba", id);
         refresh();
-        setCurrentPage(pageNumbers[0])
-
       })
       .catch((err) => console.log("Nije ispravan URL!", err));
   };
@@ -69,75 +67,78 @@ function Persons() {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(employees.length / postsPerPage); i++)
     pageNumbers.push(i);
-  
-    
-    const firstButton = () => {
-      setCurrentPage(pageNumbers[0])
-    }
-    const backButton = () => {
-      currentPage >0  ?
-        setCurrentPage((currentPage) => currentPage - 1) :
-          alert('This is first page. Go forward!')
-  }
-    const nextButton = () => {
-      pageNumbers.length > currentPage ?
-        setCurrentPage((currentPage) => currentPage + 1) :
-          alert('This is last page. Go back!')
-  }
-    const lastButton = () => {
-      setCurrentPage(pageNumbers.length)
-    }
+
+  const firstButton = () => {
+    setCurrentPage(pageNumbers[0]);
+  };
+  const backButton = () => {
+    currentPage > 0
+      ? setCurrentPage((currentPage) => currentPage - 1)
+      : alert("This is first page. Go forward!");
+  };
+  const nextButton = () => {
+    pageNumbers.length > currentPage
+      ? setCurrentPage((currentPage) => currentPage + 1)
+      : alert("This is last page. Go back!");
+  };
+  const lastButton = () => {
+    setCurrentPage(pageNumbers.length);
+  };
+
   return (
     <div className="persons">
       <div className="alignSearchBar">
         <div className="inputBox">
-        <label>Name</label>&nbsp;
-        <input
-          className="inputForName"
-          type="text"
-          name="name"
-          placeholder="Search..."
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        &nbsp; &nbsp;
-        <label>UserType</label>&nbsp;
-        <select
-          className="inputForType"
-          style={{ fontSize: "14px", padding: "3px" }}
-          name="usertype"
-          value={position}
-          onChange={(e) => {
-            setPosition(e.target.value);
-          }}
-        >
-          <option value="">--Choose Usertype--</option>
-          <option value="Internship">Internship</option>
-          <option value="Employed">Employed</option>
-          <option value="Unemployed">Unemployed</option>
-        </select>
+          <label>Name</label>&nbsp;
+          <input
+            className="inputForName"
+            type="text"
+            name="name"
+            placeholder="Search..."
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
           &nbsp; &nbsp;
-          </div>
-        <div className="btnBox">
-        <button className="btnSearch" onClick={handlerOnClick}>
-          <span>
-            Search <SearchIcon />
-          </span>
-        </button>
-        <button className="btnSearch"  onClick={clearOnClick}>
-          <span>
-            Clear <ClearIcon />
-          </span>{" "}
-        </button>
-        <button
-        className="btnSearch" id="btnCreate"
-        onClick={(e) => {
-          navigate("/add");
-        }}
-      >
-        New User <PersonAddAltOutlinedIcon />
+          <label>UserType</label>&nbsp;
+          <select
+            className="inputForType"
+            style={{ fontSize: "14px", padding: "3px" }}
+            name="usertype"
+            value={position}
+            onChange={(e) => {
+              setPosition(e.target.value);
+            }}
+          >
+            <option value="">--Choose Usertype--</option>
+            <option value="Internship">Internship</option>
+            <option value="Employed">Employed</option>
+            <option value="Unemployed">Unemployed</option>
+          </select>
+          &nbsp; &nbsp;
+        </div>
+        <div className="searchBox">
+          <button  className="buttonsForSearch" onClick={handlerOnClick}>
+            <span>
+              Search <SearchIcon />
+            </span>
+          </button>
+          <button className="buttonsForSearch" onClick={clearOnClick}>
+            <span>
+              Clear <ClearIcon />
+            </span>{" "}
+          </button>
+        </div>
+        <div className="newUserBox">
+          <button
+            className="buttonsForSearch"
+            id="btnCreate"
+            onClick={(e) => {
+              navigate("/add");
+            }}
+          >
+            New User <PersonAddAltOutlinedIcon />
           </button>
           </div>
       </div>
@@ -145,7 +146,7 @@ function Persons() {
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th style={{borderBottom: "1px solid lightgray", borderRight: "1px solid lightgray"}}>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Usertype</th>
@@ -161,7 +162,7 @@ function Persons() {
           {currentPost.map((employee) => {
             return (
               <tr key={employee.id}>
-                <td>{employee.id}</td>
+                <td style={{borderBottom: "1px solid lightgray", borderRight: "1px solid lightgray"}}>{employee.id}</td>
                 <td>{employee.firstName} </td>
                 <td>{employee.lastName}</td>
                 <td>{employee.userType}</td>
@@ -170,7 +171,7 @@ function Persons() {
                 <td>{employee.createdDate}</td>
                 <td>
                   <button
-                    className="btnEdit"
+                    className="btnAction" id="btnEdit"
                     onClick={() => {
                       navigate(`/edit/${employee.id}`);
                     }}
@@ -181,7 +182,7 @@ function Persons() {
                 </td>
                 <td>
                   <button
-                    className="btnDelete"
+                    className="btnAction" id="btnDelete"
                     onClick={(e) => {
                       deletePerson(employee.id);
                     }}
@@ -200,9 +201,21 @@ function Persons() {
         <div className="info">There are no results</div>
       )}
       <div className="navPage">
-        <button className="buttonsForNav" onClick={firstButton}  disabled={currentPage === 1}>First</button>
-        <button className="buttonsForNav" onClick={backButton}  disabled={currentPage === 1}>Back</button>
-        
+        <button
+          className="buttonsForNav"
+          onClick={firstButton}
+          disabled={currentPage === 1}
+        >
+          First
+        </button>
+        <button
+          className="buttonsForNav"
+          onClick={backButton}
+          disabled={currentPage === 1}
+        >
+          Back
+        </button>
+
         {pageNumbers.map((page) => {
           return (
             <div>
@@ -210,16 +223,28 @@ function Persons() {
                 key={page}
                 id="btnPage"
                 className={page === currentPage ? "active" : ""}
-                onClick={() => setCurrentPage(page)} 
-                >
+                onClick={() => setCurrentPage(page)}
+              >
                 {page}
                 {console.log(currentPage)}
               </button>
             </div>
           );
         })}
-        <button className="buttonsForNav" onClick={nextButton} disabled={currentPage === pageNumbers.length}>Next</button>
-        <button className="buttonsForNav" onClick={lastButton} disabled={currentPage === pageNumbers.length}>Last</button>
+        <button
+          className="buttonsForNav"
+          onClick={nextButton}
+          disabled={currentPage === pageNumbers.length}
+        >
+          Next
+        </button>
+        <button
+          className="buttonsForNav"
+          onClick={lastButton}
+          disabled={currentPage === pageNumbers.length}
+        >
+          Last
+        </button>
       </div>
     </div>
   );

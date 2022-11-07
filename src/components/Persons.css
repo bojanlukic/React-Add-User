@@ -1,22 +1,17 @@
 .persons {
-  width: 1300px;
+  width: 1145px;
   height: 1000px;
-  padding: 30px;
-  margin-left: 35px;
   text-align: left;
+  margin: 30px 55px;
 }
 table {
   margin-top: 27px;
   border-collapse: collapse;
   box-shadow: 1px 3px 7px rgb(192, 192, 192);
-
 }
 td,
 th {
   padding: 13px 10px;
-}
-tr:nth-child(even) {
-  background: rgb(219, 247, 245);
 }
 th {
   background: rgb(219, 247, 245);
@@ -24,49 +19,78 @@ th {
   font-weight: 900;
   font-size: 20px;
 }
+tr:nth-child(even) {
+  background: rgb(219, 247, 245);
+}
 tr:hover {
   background-color: rgb(68, 179, 151);
   color: rgb(255, 255, 255);
 }
-#btnCreate {
+.inputForName {
+  font-size: 16px;
+  padding: 2px;
+  width: 160px;
+  height: 19px;
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0);
+}
+.inputForName:focus {
+  width: 200px;
+  transition: all 0.5s ease;
+}
+.inputForType {
+  border-radius: 5px;
+  border: 2px solid rgb(0, 0, 0);
+}
+.alignSearchBar {
   display: flex;
   align-items: center;
-  position: absolute;
-  right: 190px;
 }
-.btnCreate:hover {
+.newUserBox {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+.searchBox {
+  display: flex;
+  gap: 13px;
+}
+.buttonsForSearch {
+  cursor: pointer;
+  padding: 5px 7px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.buttonsForSearch:hover {
   background-color: rgb(68, 179, 151);
 }
-.btnEdit {
+span {
+  display: flex;
+  align-items: center;
+}
+.btnAction {
   display: flex;
   align-items: center;
   height: 29px;
-  width: 66px;
-  border-radius: 6px;
+  border-radius: 5px;
   border: none;
   background-color: rgb(231, 227, 227);
   font-size: 15px;
-  font-weight: bold;
-
+  font-weight: 600;
 }
-.btnEdit:hover {
+#btnEdit:hover {
   background-color: rgb(4, 226, 52);
   color: rgb(255, 255, 255);
   cursor: pointer;
 }
-.btnDelete {
-  display: flex;
-  align-items: center;
-  height: 29px;
-  width: 81px;
-  border-radius: 6px;
-  border: none;
-  background-color: rgb(231, 227, 227);
-  font-size: 15px;
-  font-weight: bold;
-
-}
-.btnDelete:hover {
+#btnDelete:hover {
   background-color: rgb(252, 17, 17);
   color: rgb(255, 255, 255);
   cursor: pointer;
@@ -77,87 +101,42 @@ tr:hover {
 .alignAction {
   text-align: center;
 }
-.btnSearch {
-  cursor: pointer;
-  padding: 6px 8px;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  border-radius: 25px;
-  border: none;
-  transition: all 0.3s ease;
-  font-weight: bold;
-  font-size: 14px;
-  margin-right: 7px;
-}
-.btnSearch:hover {
-  background-color: rgb(68, 179, 151);
-}
-span {
-  display: flex;
-  align-items: center;
-}
-.inputForName {
-  font-size: 16px;
-  padding: 2px;
-  width: 160px;
-  height: 19px;
-  border-radius: 5px;
-  border: 2px solid rgb(0, 0, 0) ;
-}
-.inputForName:focus {
-  width: 200px;
-  transition: all 0.5s ease;
-}
-.inputForType {
-border-radius: 5px;
-border: 2px solid rgb(0, 0, 0) ;
-
-}
 .navPage {
   display: flex;
   justify-content: center;
   gap: 10px;
-  width: 1110px;
+  width: 100%;
   margin-top: 50px;
-  
 }
-
-.navPage button.active  {
-font-weight: 900;
-background-color: mediumblue;
-color: white;
+.navPage button.active {
+  font-weight: 900;
+  background-color: mediumblue;
+  color: white;
+  border-radius: 5px;
 }
-#btnPage{
+#btnPage {
   padding: 10px 12px;
   border: none;
-  font-size: 16px;
+  font-size: medium;
+  font-weight: 600;
   cursor: pointer;
-}
-
-.buttonsForNav{
-  border: 2px solid mediumblue;
   border-radius: 5px;
+
+}
+.buttonsForNav {
+  border: 2px solid mediumblue;
   padding: 0px 12px;
   font-size: medium;
   font-weight: 600;
   cursor: pointer;
-  
+  border-radius: 5px;
+
 }
-.buttonsForNav:hover, #btnPage:hover {
+.buttonsForNav:hover,
+#btnPage:hover {
   background-color: mediumblue;
   color: white;
 }
-.alignSearchBar{
-  display: flex;
-  align-items: center;
-
+.buttonsForNav:disabled {
+  border: 2px solid silver;
 }
-.btnBox {
-  display: flex;
-  
-}
-.inputBox {
-  display: flex;
-
-}
-

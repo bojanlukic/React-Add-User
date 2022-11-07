@@ -40,7 +40,7 @@ function EditPersonForm() {
       [e.target.name]: value,
     });
   };
-
+  
   const handlerOnClick = (e) => {
     console.log("Submitujemo podatke za izmenu korisnika:", state);
 
@@ -68,10 +68,9 @@ function EditPersonForm() {
         navigate("/");
       })
       .catch((err) => console.log("Greska,pogresna URL adresa!", err.message));
-  };
-
+    };
   return (
-    <div className="editForm">
+    <div className="container-editForm">
       <h1>Edit user (ID {id})</h1>
       <div>
         <label>First Name</label>
@@ -127,11 +126,11 @@ function EditPersonForm() {
         />
       </div>
 
-      <button className="btnSave" onClick={handlerOnClick}>
+      <button className="btnEditForm" onClick={handlerOnClick} >
         Save changes
       </button>
       <button
-        className="btnCancel"
+        className="btnEditForm"
         onClick={() => {
           navigate("/");
         }}

@@ -52,8 +52,7 @@ function AddPersonForm() {
   };
 
   return (
-    <div>
-      <div className="addForm"> 
+      <div className="container-addForm"> 
       <h1>Add new user</h1>
         <div>
           <label>First Name</label>
@@ -114,11 +113,11 @@ function AddPersonForm() {
             required
           />
         </div>
-          <button className="btnAdd" onClick={handlerOnClick}> 
+          <button className="btnAddForm" onClick={handlerOnClick} disabled= {!state.firstName || !state.lastName || !state.userType || !state.city || !state.adress}> 
             Add user
           </button>
           <button
-            className="btnCancel"
+            className="btnAddForm"
             onClick={() => {
               navigate("/");
             }}
@@ -126,7 +125,7 @@ function AddPersonForm() {
             Cancel
           </button>
             </div>
-            </div>
+            
    
   );
 }

@@ -6,31 +6,29 @@
   margin-bottom: 20px;
   font-size: 16px;
 }
-.addForm {
+.container-addForm {
   padding: 30px;
   margin-left: 35px;
   text-align: left;
 }
-.btnAdd {
+ .btnAddForm {
+  background-color: black;
+  color: white;
   cursor: pointer;
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  padding: 8px;
-  border-radius: 25px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(0,0,0);
   transition: all 0.3s ease;
-  margin-right: 8px;
-}
-.btnAdd:hover {
+  margin: 8px 10px 0 0;
+  font-weight: 600;
+} 
+.btnAddForm:hover {
   background-color: rgb(68, 179, 151);
-}
-.btnCancel {
-  cursor: pointer;
-  background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
-  padding: 8px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-.btnCancel:hover {
-  background-color: rgb(68, 179, 151);
+  border: 2px solid rgb(68, 179, 151);
+} 
+.btnAddForm:disabled {
+  border: 2px solid silver;
+  background-color: white;
+  color: silver;
 }

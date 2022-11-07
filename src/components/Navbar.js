@@ -19,11 +19,6 @@ function Navbar() {
             <div>New User </div>
           </NavLink>
         </li>
-        <li>
-          <NavLink activeclassname="active" to="/about">
-            <div>About</div>
-          </NavLink>
-        </li>
       </ul>
     </div>
   );
