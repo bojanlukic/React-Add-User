@@ -29,6 +29,7 @@ function Persons() {
       })
       .catch((err) => console.log("Greska pri ucitavanju URL-a", err));
   };
+  
 
   const handlerOnClick = () => {
     const filteredPersons = employees.filter(
@@ -67,7 +68,7 @@ function Persons() {
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(employees.length / postsPerPage); i++)
     pageNumbers.push(i);
-
+  
   const firstButton = () => {
     setCurrentPage(pageNumbers[0]);
   };
@@ -104,7 +105,6 @@ function Persons() {
           <label>UserType</label>&nbsp;
           <select
             className="inputForType"
-            style={{ fontSize: "14px", padding: "3px" }}
             name="usertype"
             value={position}
             onChange={(e) => {
@@ -118,7 +118,7 @@ function Persons() {
           </select>
           &nbsp; &nbsp;
         </div>
-        <div className="searchBox">
+        <div className="buttonBox">
           <button  className="buttonsForSearch" onClick={handlerOnClick}>
             <span>
               Search <SearchIcon />
@@ -133,7 +133,6 @@ function Persons() {
         <div className="newUserBox">
           <button
             className="buttonsForSearch"
-            id="btnCreate"
             onClick={(e) => {
               navigate("/add");
             }}
@@ -226,7 +225,6 @@ function Persons() {
                 onClick={() => setCurrentPage(page)}
               >
                 {page}
-                {console.log(currentPage)}
               </button>
             </div>
           );
